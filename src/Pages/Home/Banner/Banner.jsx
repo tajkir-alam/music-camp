@@ -29,17 +29,17 @@ const Banner = () => {
                 <SwiperSlide>
                     <span className='absolute bg-gradient-to-r from-[rgba(0,0,0,0.6)] to-[rgba(0,0,0,0.2)] w-full h-full'></span>
                     <img src={slider1} loading="lazy" />
-                    <span className='text-[#ffffffe3] absolute top-1/3 left-12 w-3/4 md:top-2/4 md:left-52 text-center text-3xl lg:text-7xl z-20 font-Courgette drop-shadow-md'>Your Vacation Partner <br /> Music Camp </span>
+                    <span className='text-[#ffffffe3] dark:text-white absolute top-1/3 left-12 w-3/4 md:top-2/4 md:left-52 text-center text-3xl lg:text-7xl z-20 font-Courgette drop-shadow-md'>Your Vacation Partner <br /> Music Camp </span>
                 </SwiperSlide>
                 <SwiperSlide>
                     <span className='absolute bg-gradient-to-r from-[rgba(0,0,0,0.6)] to-[rgba(0,0,0,0.2)] w-full h-full'></span>
                     <img src={slider2} loading="lazy" />
-                    <span className='text-[#ffffffe3] absolute top-1/3 left-12 w-3/4 md:top-2/4 md:left-52 text-center text-3xl lg:text-7xl z-20 font-Courgette drop-shadow-md'>Enjoy Your Vacation <br /> with musicians</span>
+                    <span className='text-[#ffffffe3] dark:text-white absolute top-1/3 left-12 w-3/4 md:top-2/4 md:left-52 text-center text-3xl lg:text-7xl z-20 font-Courgette drop-shadow-md'>Enjoy Your Vacation <br /> with musicians</span>
                 </SwiperSlide>
                 <SwiperSlide>
                     <span className='absolute bg-gradient-to-r from-[rgba(0,0,0,0.6)] to-[rgba(0,0,0,0.2)] w-full h-full'></span>
                     <img src={slider3} loading="lazy" />
-                    <span className='text-[#ffffffe3] absolute top-1/3 left-12 w-3/4 md:top-2/4 md:left-52 text-center text-3xl lg:text-7xl z-20 font-Courgette drop-shadow-md'>Learn Music <br /> with Music Camp</span>
+                    <span className='text-[#ffffffe3] dark:text-white absolute top-1/3 left-12 w-3/4 md:top-2/4 md:left-52 text-center text-3xl lg:text-7xl z-20 font-Courgette drop-shadow-md'>Learn Music <br /> with Music Camp</span>
                 </SwiperSlide>
             </Swiper>
         </section>
