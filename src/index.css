@@ -5,11 +5,15 @@
 
 @layer components {
     .custom-container {
-        @apply px-2 py-4 lg:w-4/5 lg:mx-auto
+        @apply px-2 py-4 lg:w-4/5 md:mx-auto
+    }
+    .navbar-end {
+        @apply lg:w-[35%]
     }
 }
 
-/* .active {
-    color: white;
+.active {
+    color: blue;
     background: none;
-} */
+    box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.438);
+}
