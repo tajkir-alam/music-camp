@@ -6,8 +6,13 @@ export default {
   ],
   theme: {
     extend: {},
-    themes: ["light", "dark", "cupcake"],
+    fontFamily: {
+      Courgette: ['Courgette']
+    },
   },
   plugins: [require("daisyui")],
+  daisyui: {
+    themes: ["light", "dark"],
+  },
 }
 

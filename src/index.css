@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer components {
+    .custom-container {
+        @apply px-2 py-4 lg:w-4/5 lg:mx-auto
+    }
+}
+
+/* .active {
+    color: white;
+    background: none;
+} */
