@@ -72,7 +72,7 @@ const Navbar = () => {
                             </ul>
                         </div>
 
-                        <button className='btn'>Login</button>
+                        <button className='btn px-6'>Login</button>
                     
 
                     <label className="swap swap-rotate">
