@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import loginImg from '../../../assets/login.png'
 
 const Login = () => {
     const [Error, setError] = useState('');
@@ -66,9 +67,12 @@ const Login = () => {
 
     return (
         <div className='bg-gradient-to-r from-[#1d232a] to-[#383636ef]'>
-            <div className='custom-container text-white py-12'>
+            <div className='custom-container text-white py-12 relative'>
+                <div className='flex justify-center'>
+                    <img src={loginImg} alt="" className='w-20 h-20 bg-slate-100 rounded-full absolute top-2 z-50' />
+                </div>
                 <div className='bg-slate-800/50 lg:w-2/4 mx-auto rounded-xl shadow-md duration-700 shadow-white hover:shadow-lg hover:shadow-white drop-shadow-md p-4 lg:px-10 lg:pt-6 lg:pb-10 tracking-wider'>
-                    <h1 className='text-2xl lg:text-5xl text-[#fffffff3] text-center font-semibold uppercase'>Sign In</h1>
+                    <h1 className='text-2xl lg:text-5xl text-[#fffffff3] text-center font-semibold uppercase mt-8'>Sign In</h1>
                     <div className='grid justify-center mt-6'>
                         <button onClick={googleSignup} className='btn text-slate-500 dark:text-white flex justify-center items-center border-2 rounded-full w-12 h-12 mx-auto my-1'>
                             <span className='text-3xl'><FaGoogle></FaGoogle></span>
