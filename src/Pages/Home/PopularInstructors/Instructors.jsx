@@ -1,8 +1,8 @@
 import React from 'react';
 
 const Instructors = ({ instructor }) => {
-    const { image, instructorName, students } = instructor
-    console.log(instructor);
+    const { image, instructorName, totalStudents } = instructor
+    
     return (
         <section className='duration-500 hover:shadow rounded-lg py-2'>
             <div className='flex justify-center items-center'>
@@ -10,7 +10,7 @@ const Instructors = ({ instructor }) => {
             </div>
             <div className='mt-4 mb-8'>
                 <h2 className='text-center text-xl text-slate-700 dark:text-white font-semibold'>{instructorName}</h2>
-                <p className='text-center text-slate-600 dark:text-slate-300 font-semibold -mt-1'>Teaches {students} students</p>
+                <p className='text-center text-slate-600 dark:text-slate-300 font-semibold -mt-1'>Teaches {totalStudents} students</p>
             </div>
         </section>
     );
