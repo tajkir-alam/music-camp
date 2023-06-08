@@ -14,11 +14,11 @@ const Navbar = () => {
     const handleToggle = (e) => {
         if (e.target.checked) {
             setTheme('dark');
-            document.documentElement.classList.add('dark')
+            document.documentElement.classList.add('dark');
         }
         else {
             setTheme('light');
-            document.documentElement.classList.remove('dark')
+            document.documentElement.classList.remove('dark');
         }
     }
 
