@@ -18,7 +18,7 @@ const PopularInstructors = () => {
                 subHeading={'Meet the top classes you can choose. Start your summer vacation with us.'}
             />
 
-            <section className='custom-container grid gap-5 md:grid-cols-2 lg:grid-cols-3'>
+            <section className='custom-container grid gap-5 grid-cols-2 lg:grid-cols-3'>
                 {
                     instructors.map(instructor => <Instructors key={instructor._id} instructor={instructor}></Instructors>)
                 }

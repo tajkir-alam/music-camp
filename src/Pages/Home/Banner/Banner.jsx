@@ -132,11 +132,11 @@ const Banner = () => {
                     <span className='absolute bg-gradient-to-r from-[rgba(0,0,0,0.6)] to-[rgba(0,0,0,0.2)] w-full h-full'></span>
                     <img src={slider1} loading="lazy" />
                     {/* <span className='text-[#ffffffe3] dark:text-white absolute top-1/3 left-12 w-3/4 md:top-2/4 md:left-52 text-center text-3xl lg:text-7xl z-20 font-Courgette drop-shadow-md'>Your Vacation Partner <br /> Music Camp </span> */}
-                    <div className={'container absolute top-0 left-12'}>
+                    <div className={'container absolute top-1/4 lg:top-12'}>
                         <div className={'main'}>
                             {transitions(({ innerHeight, ...rest }, item) => (
                                 <animated.div className={'transitionsItem'} style={rest} onClick={reset}>
-                                    <animated.div style={{ overflow: 'hidden', height: innerHeight }} className='px-5'>{item}</animated.div>
+                                    <animated.div style={{ overflow: 'hidden', height: innerHeight }} className='px-5 text-3xl lg:text-5xl'>{item}</animated.div>
                                 </animated.div>
                             ))}
                         </div>
@@ -146,11 +146,11 @@ const Banner = () => {
                     <span className='absolute bg-gradient-to-r from-[rgba(0,0,0,0.6)] to-[rgba(0,0,0,0.2)] w-full h-full'></span>
                     <img src={slider2} loading="lazy" />
                     {/* <span className='text-[#ffffffe3] dark:text-white absolute top-1/3 left-12 w-3/4 md:top-2/4 md:left-52 text-center text-3xl lg:text-7xl z-20 font-Courgette drop-shadow-md'>Enjoy Your Vacation <br /> with musicians</span> */}
-                    <div className={'container absolute top-0 left-12'}>
+                    <div className={'container absolute top-1/4 lg:top-12'}>
                         <div className={'main'}>
                             {transitions2(({ innerHeight, ...rest }, item) => (
                                 <animated.div className={'transitionsItem'} style={rest} onClick={reset2}>
-                                    <animated.div style={{ overflow: 'hidden', height: innerHeight }} className='px-5'>{item}</animated.div>
+                                    <animated.div style={{ overflow: 'hidden', height: innerHeight }} className='px-5 text-3xl lg:text-5xl'>{item}</animated.div>
                                 </animated.div>
                             ))}
                         </div>
@@ -160,11 +160,11 @@ const Banner = () => {
                     <span className='absolute bg-gradient-to-r from-[rgba(0,0,0,0.6)] to-[rgba(0,0,0,0.2)] w-full h-full'></span>
                     <img src={slider3} loading="lazy" />
                     {/* <span className='text-[#ffffffe3] dark:text-white absolute top-1/3 left-12 w-3/4 md:top-2/4 md:left-52 text-center text-3xl lg:text-7xl z-20 font-Courgette drop-shadow-md'>Learn Music <br /> with Music Camp</span> */}
-                    <div className={'container absolute top-0 left-12'}>
+                    <div className={'container absolute top-1/4 lg:top-12'}>
                         <div className={'main'}>
                             {transitions3(({ innerHeight, ...rest }, item) => (
                                 <animated.div className={'transitionsItem'} style={rest} onClick={reset3}>
-                                    <animated.div style={{ overflow: 'hidden', height: innerHeight }} className='px-5'>{item}</animated.div>
+                                    <animated.div style={{ overflow: 'hidden', height: innerHeight }} className='px-5 text-3xl lg:text-5xl'>{item}</animated.div>
                                 </animated.div>
                             ))}
                         </div>

@@ -12,7 +12,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 4em;
+    /* font-size: 4em; */
     font-weight: 800;
     font-family: courgette;
     text-transform: uppercase;
