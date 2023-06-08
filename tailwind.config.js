@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'bg-footer': "url('./src/assets/class/guiar.jpg')"
+      },
+    },
     fontFamily: {
       Courgette: ['Courgette']
     },
