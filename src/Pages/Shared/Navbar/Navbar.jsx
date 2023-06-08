@@ -30,7 +30,7 @@ const Navbar = () => {
     </>
 
     return (
-        <section className="bg-[#000000e0] sticky top-0 z-30 w-full">
+        <section className="bg-[#000000e0] sticky top-0 z-50 w-full">
             <div className="custom-container navbar">
                 <div className="navbar-start">
                     <div className="dropdown">

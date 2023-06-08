@@ -69,7 +69,7 @@ const Login = () => {
         <div className='bg-gradient-to-r from-[#1d232a] to-[#383636ef]'>
             <div className='custom-container text-white py-12 relative'>
                 <div className='flex justify-center'>
-                    <img src={loginImg} alt="" className='w-20 h-20 bg-slate-100 rounded-full absolute top-2 z-50' />
+                    <img src={loginImg} alt="" className='w-20 h-20 bg-slate-100 rounded-full absolute top-2 z-30' />
                 </div>
                 <div className='bg-slate-800/50 lg:w-2/4 mx-auto rounded-xl shadow-md duration-700 shadow-white hover:shadow-lg hover:shadow-white drop-shadow-md p-4 lg:px-10 lg:pt-6 lg:pb-10 tracking-wider'>
                     <h1 className='text-2xl lg:text-5xl text-[#fffffff3] text-center font-semibold uppercase mt-8'>Sign In</h1>
