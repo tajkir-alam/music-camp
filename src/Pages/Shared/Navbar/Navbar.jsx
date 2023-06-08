@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import logo from '../../../assets/logo.png';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     const [theme, setTheme] = useState(localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light');
@@ -30,7 +30,7 @@ const Navbar = () => {
     </>
 
     return (
-        <section className="bg-transparent absolute z-30 w-full">
+        <section className="bg-[#000000e0] fixed top-0 z-30 w-full">
             <div className="custom-container navbar">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -72,7 +72,7 @@ const Navbar = () => {
                             </ul>
                         </div>
 
-                        <button className='btn px-6'>Login</button>
+                        <Link to='/login' className='btn px-6'>Login</Link>
                     
 
                     <label className="swap swap-rotate">
