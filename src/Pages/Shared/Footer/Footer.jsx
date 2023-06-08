@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <section className="bg-bg-footer bg-cover bg-center mt-20 relative">
+        <section className="bg-bg-footer bg-cover bg-center relative">
             <div className='bg-[#0c0b0bc4] absolute w-full h-full mix-blend-hard-light'></div>
             <div className='footer custom-container py-16'>
                 <div className='z-50'>
