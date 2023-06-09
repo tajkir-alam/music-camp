@@ -4,8 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Navbar = () => {
-    const { user, logOut } = useAuth()
-    console.log(user);
+    const { user, logOut } = useAuth();
 
     const [theme, setTheme] = useState(localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light');
 
