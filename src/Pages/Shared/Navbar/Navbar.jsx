@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import logo from '../../../assets/logo.png';
 import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import useAdmin from '../../../hooks/userAdmin';
+import useInstructor from '../../../hooks/userInstructor';
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
-
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
     const [theme, setTheme] = useState(localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light');
 
     useEffect(() => {
@@ -29,7 +32,7 @@ const Navbar = () => {
         <li><NavLink className='uppercase font-medium' to='/'>Home</NavLink></li>
         <li><NavLink className='uppercase font-medium' to='/instructors'>Instructors</NavLink></li>
         <li><NavLink className='uppercase font-medium' to='/classes'>Classes</NavLink></li>
-        {user && <li><NavLink className='uppercase font-medium' to='/dashboard'>Dashboard</NavLink></li>}
+        {user && <li><NavLink className='uppercase font-medium' to={isAdmin && '/admin-dashboard' || isInstructor && 'instructor-dashboard' || 'student-dashboard'}>Dashboard</NavLink></li>}
     </>
 
     return (
