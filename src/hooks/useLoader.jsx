@@ -3,7 +3,7 @@ import { MagnifyingGlass } from 'react-loader-spinner';
 
 const useLoader = () => {
     return (
-        <div>
+        <div className='z-50'>
             <div className='hidden lg:block absolute w-full mt-24'>
                 <div className='flex justify-center items-center'>
                     <MagnifyingGlass

@@ -20,8 +20,8 @@ const AllClasses = () => {
             { loader && useLoader()}
             {
                 classes.map(singClass =>
-                    <div className="card card-compact bg-base-100 duration-500 shadow-xl dark:hover:shadow-white dark:hover:shadow-md scale-100 hover:scale-105" key={singClass._id}>
-                        <figure><img src={singClass.image} alt="" className='h-44 w-full' /></figure>
+                    <div className="card card-compact bg-base-200 duration-500 shadow-xl dark:hover:shadow-white dark:hover:shadow-md scale-100 hover:scale-105" key={singClass._id}>
+                        <figure><img src={singClass.image} alt="" className='h-52 w-full' /></figure>
                         <div className="card-body">
                             <div className="flex items-center ite">
                                 <h2 className="card-title text-2xl dark:text-slate-300">{singClass.name}</h2>
@@ -30,7 +30,7 @@ const AllClasses = () => {
                             <p className='font-semibold text-slate-600 dark:text-slate-500'>Class will be Taken by <span className='font-bold dark:text-slate-400'>{singClass.instructorName}</span></p>
                             <div className="card-actions justify-end items mt-4">
                                 <p className='text-lg mt-2 font-medium'>Available Seats: {singClass.availableSeats}</p>
-                                <button className="btn btn-primary">Buy Now</button>
+                                <button className="btn text-white tracking-wider bg-slate-900 hover:bg-slate-700 dark:bg-slate-700 dark:hover:bg-slate-900">Enroll Class</button>
                             </div>
                         </div>
                     </div>
