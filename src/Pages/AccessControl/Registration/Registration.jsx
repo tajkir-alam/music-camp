@@ -93,28 +93,28 @@ const Registration = () => {
                         <div className="space-y-5">
                             <div className="space-y-1">
                                 <label htmlFor="name" className='block font-medium ml-1'>Enter your name</label>
-                                <input {...register("name")} required id="name" placeholder='Enter the name here' className='py-2 px-3 shadow-lg border-2 outline-none rounded-md w-full text-black' />
+                                <input {...register("name", { required: true })} id="name" placeholder='Enter the name here' className='py-2 px-3 shadow-lg border-2 outline-none rounded-md w-full text-black' />
                             </div>
                             <div className="space-y-1">
                                 <label htmlFor="email" className='block font-medium ml-1'>Enter your email</label>
-                                <input {...register("email")} required id="email" placeholder='Enter your email address' className='py-2 px-3 shadow-lg border-2 outline-none rounded-md w-full text-black' />
+                                <input {...register("email", { required: true })} id="email" placeholder='Enter your email address' className='py-2 px-3 shadow-lg border-2 outline-none rounded-md w-full text-black' />
                             </div>
                             <div className="space-y-1">
                                 <label htmlFor="password" className='block font-medium ml-1'>Enter your password</label>
                                 <div className='relative'>
-                                    <input {...register("password")} type={!showPass ? 'password' : 'text'} required id="password" placeholder='Enter your password' className='py-2 px-3 shadow-lg border-2 outline-none rounded-md w-full text-black' />
-                                    <button onClick={() => setShowPass(!showPass)}>
+                                    <input {...register("password", { required: true })} type={!showPass ? 'password' : 'text'} id="password" placeholder='Enter your password' className='py-2 px-3 shadow-lg border-2 outline-none rounded-md w-full text-black' />
+                                    <div onClick={() => setShowPass(!showPass)}>
                                         {
                                             showPass ? <FaRegEye className='absolute right-5 top-1/3 text-slate-700 text-xl'></FaRegEye>
                                                 :
                                                 <FaRegEyeSlash className='absolute right-5 top-1/3 text-slate-700 text-xl'></FaRegEyeSlash>
                                         }
-                                    </button>
+                                    </div>
                                 </div>
                             </div>
                             <div className="space-y-1">
                                 <label htmlFor="img" className='block font-medium ml-1'>Enter a valid image URL</label>
-                                <input {...register("img")} required placeholder='Enter URL here @example: https://img.com' className='py-2 px-3 shadow-lg border-2 outline-none rounded-md w-full text-black' />
+                                <input {...register("img", { required: true })} placeholder='Enter URL here @example: https://img.com' className='py-2 px-3 shadow-lg border-2 outline-none rounded-md w-full text-black' />
                             </div>
                         </div>
 

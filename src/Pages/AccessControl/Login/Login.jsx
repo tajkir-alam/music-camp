@@ -89,25 +89,39 @@ const Login = () => {
                         <div className="space-y-5">
                             <div className="space-y-1">
                                 <label htmlFor="email" className='block font-medium ml-1'>Enter your email</label>
-                                <input {...register("email")} required id="email" placeholder='Enter your email address' className='py-2 px-3 shadow-lg border-2 outline-none rounded-md w-full text-black' />
+                                <input {...register("email", { required: true })} id="email" placeholder='Enter your email address' className='py-2 px-3 shadow-lg border-2 outline-none rounded-md w-full text-black' />
+                                {errors.email?.type === 'required' && <p role="alert" className='ml-1 mt-2 text-red-400'>First name is required</p>}
                             </div>
                             <div className="space-y-1">
                                 <label htmlFor="password" className='block font-medium ml-1'>Enter your password</label>
                                 <div className='relative'>
-                                    <input {...register("password")} type={!showPass ? 'password' : 'text'} required id="password" placeholder='Enter your password' className='py-2 px-3 shadow-lg border-2 outline-none rounded-md w-full text-black' />
-                                    <button onClick={() => setShowPass(!showPass)}>
+                                    <input {...register("password", {
+                                        required: true,
+                                        minLength: { value: 6, message: 'Password should contain 6 characters' },
+                                        maxLength: { value: 34, message: 'Password can not be more than 34 characters' },
+                                        validate: {
+                                            uppercase: (value) =>
+                                                /[A-Z]/.test(value) ||
+                                                'Password must contain at least one uppercase letter',
+                                            specialChar: (value) =>
+                                                /[!@#$%^&*]/.test(value) ||
+                                                'Password must contain at least one special character',
+                                        },
+                                    })} type={!showPass ? 'password' : 'text'} id="password" placeholder='Enter your password' className='py-2 px-3 shadow-lg border-2 outline-none rounded-md w-full text-black' />
+                                    <div onClick={() => setShowPass(!showPass)}>
                                         {
-                                            showPass ? <FaRegEye className='absolute right-5 top-1/3 text-slate-700 text-xl'></FaRegEye> 
-                                            : 
-                                            <FaRegEyeSlash className='absolute right-5 top-1/3 text-slate-700 text-xl'></FaRegEyeSlash>
+                                            showPass ? <FaRegEye className='absolute right-5 top-1/3 text-slate-700 text-xl'></FaRegEye>
+                                                :
+                                                <FaRegEyeSlash className='absolute right-5 top-1/3 text-slate-700 text-xl'></FaRegEyeSlash>
                                         }
-                                    </button>
+                                    </div>
                                 </div>
+                                {errors.password && <p role="alert" className='ml-1 mt-2 text-red-400'>{errors.password.message}</p>}
                             </div>
                         </div>
 
                         {
-                            <p className='my-8 text-error font-bold tracking-widest'>{Error}</p>
+                            <p className='my-8 text-error text-center font-bold tracking-widest'>{Error}</p>
                         }
 
                         <div className="divider font-semibold text-yellow-600">
