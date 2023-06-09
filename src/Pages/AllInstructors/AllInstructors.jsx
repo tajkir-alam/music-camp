@@ -14,13 +14,11 @@ const AllInstructors = () => {
             return res.json();
         }
     })
-    console.log(instructors);
 
     return (
         <div className="overflow-x-auto my-12 lg:px-4">
             { loader && useLoader()}
             <table className="table text-center">
-                {/* head */}
                 <thead>
                     <tr>
                         <th>Image</th>
