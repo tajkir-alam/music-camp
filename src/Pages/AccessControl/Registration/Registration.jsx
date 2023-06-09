@@ -30,12 +30,14 @@ const Registration = () => {
         }
     })
 
-    const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
+        console.log(data);
         setError('');
         emailSignup(data.email, data.password, data.name, data.img)
             .then(result => {
                 const user = result.user;
+                console.log(user);
                 Toast.fire({
                     icon: 'success',
                     title: 'Signed in successfully'
@@ -46,7 +48,7 @@ const Registration = () => {
             })
             .catch(error => {
                 {
-                    error && setError(error.message.split('(')[1].split(')')[0].split('/')[1])
+                    error.message && setError(error.message.split('(')[1].split(')')[0].split('/')[1])
                 }
                 console.log(error.message);
                 setLoader(false);
