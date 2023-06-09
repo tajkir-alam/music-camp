@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <section className="bg-bg-footer bg-cover bg-center relative">
             <div className='bg-[#0c0b0bc4] absolute w-full h-full mix-blend-hard-light'></div>
-            <div className='footer custom-container py-16'>
+            <div className='footer custom-container pt-16 pb-12'>
                 <div className='z-50'>
                     <h3 className="z-50 uppercase text-2xl text-[#fcfbfbe3] font-bold">Contact us</h3>
                     <div className='text-white text-lg'>
@@ -41,6 +41,9 @@ const Footer = () => {
 
                     <input type="text" placeholder="Your email" className="input border-white rounded-3xl bg-transparent text-white w-full pr-16" />
                 </div>
+            </div>
+            <div className='footer footer-center pb-4'>
+                <p className='text-white text-lg z-40'>Copyright © 2023 - All right reserved by Tajkir Alam</p>
             </div>
         </section>
     );

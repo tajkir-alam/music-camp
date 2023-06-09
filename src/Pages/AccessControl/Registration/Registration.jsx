@@ -36,18 +36,30 @@ const Registration = () => {
         emailSignup(data.email, data.password, data.name, data.img)
             .then(result => {
                 const user = result.user;
-                console.log(user);
-                Toast.fire({
-                    icon: 'success',
-                    title: 'Signed in successfully'
-                });
+                const userInfo = { name: data.name, email: data.email, role: 'Student' };
+                if (user) {
+                    fetch('http://localhost:5000/users', {
+                        method: "POST",
+                        headers: {
+                            'content-type': 'application/json',
+                        },
+                        body: JSON.stringify(userInfo)
+                    })
+                        .then(res => res.json())
+                        .then(() => {
+                            Toast.fire({
+                                icon: 'success',
+                                title: 'Signed in successfully'
+                            })
+                        })
+                }
                 navigate('/login');
                 logOut();
                 setLoader(false);
             })
             .catch(error => {
                 {
-                    error.message && setError(error.message.split('(')[1].split(')')[0].split('/')[1])
+                    error.message && setError(error?.message?.split('(')[1].split(')')[0].split('/')[1])
                 }
                 console.log(error.message);
                 setLoader(false);
@@ -58,11 +70,22 @@ const Registration = () => {
         googleLogin()
             .then(result => {
                 const user = result.user;
+                const userInfo = { name: user.name, email: user.email, role: 'Student' };
                 if (user) {
-                    Toast.fire({
-                        icon: 'success',
-                        title: 'Signed in successfully'
-                    });
+                    fetch('http://localhost:5000/users', {
+                        method: "POST",
+                        headers: {
+                            'content-type': 'application/json',
+                        },
+                        body: JSON.stringify(userInfo)
+                    })
+                        .then(res => res.json())
+                        .then(() => {
+                            Toast.fire({
+                                icon: 'success',
+                                title: 'Signed in successfully'
+                            })
+                        })
                     setTimeout(delayNavigate, 2000);
                     logOut();
                     reset();
