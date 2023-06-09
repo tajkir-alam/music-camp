@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { FaGoogle, FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import loginImg from '../../../assets/login.png'
+import loginImg from '../../../assets/login.png';
 import { AuthContext } from '../../../Providers/AuthProvider';
 import LazyLoad from 'react-lazyload';
 
@@ -73,7 +73,7 @@ const Login = () => {
             <div className='custom-container text-white py-12 relative'>
                 <div>
                     <LazyLoad once className='flex justify-center'>
-                        <img src={loginImg} alt="" className='w-20 h-20 bg-slate-100 rounded-full absolute top-2 z-30' />
+                        <img src={loginImg} alt="" className='w-20 h-20 duration-300 bg-slate-100 dark:bg-slate-300 rounded-full absolute top-2 z-30' />
                     </LazyLoad>
                 </div>
                 <div className='bg-slate-800/50 lg:w-2/4 mx-auto rounded-xl shadow-md duration-700 shadow-white hover:shadow-lg hover:shadow-white drop-shadow-md p-4 lg:px-10 lg:pt-6 lg:pb-10 tracking-wider'>
@@ -97,7 +97,7 @@ const Login = () => {
                                     <input {...register("password")} type={!showPass ? 'password' : 'text'} required id="password" placeholder='Enter your password' className='py-2 px-3 shadow-lg border-2 outline-none rounded-md w-full text-black' />
                                     <button onClick={() => setShowPass(!showPass)}>
                                         {
-                                            !showPass ? <FaRegEye className='absolute right-5 top-1/3 text-slate-700 text-xl'></FaRegEye> 
+                                            showPass ? <FaRegEye className='absolute right-5 top-1/3 text-slate-700 text-xl'></FaRegEye> 
                                             : 
                                             <FaRegEyeSlash className='absolute right-5 top-1/3 text-slate-700 text-xl'></FaRegEyeSlash>
                                         }
