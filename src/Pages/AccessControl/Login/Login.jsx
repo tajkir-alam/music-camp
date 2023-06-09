@@ -90,7 +90,7 @@ const Login = () => {
                             <div className="space-y-1">
                                 <label htmlFor="email" className='block font-medium ml-1'>Enter your email</label>
                                 <input {...register("email", { required: true })} id="email" placeholder='Enter your email address' className='py-2 px-3 shadow-lg border-2 outline-none rounded-md w-full text-black' />
-                                {errors.email?.type === 'required' && <p role="alert" className='ml-1 mt-2 text-red-400'>First name is required</p>}
+                                {errors.email?.type === 'required' && <p className='ml-1 mt-2 text-red-400'>Email is required</p>}
                             </div>
                             <div className="space-y-1">
                                 <label htmlFor="password" className='block font-medium ml-1'>Enter your password</label>

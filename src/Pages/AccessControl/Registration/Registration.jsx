@@ -94,15 +94,29 @@ const Registration = () => {
                             <div className="space-y-1">
                                 <label htmlFor="name" className='block font-medium ml-1'>Enter your name</label>
                                 <input {...register("name", { required: true })} id="name" placeholder='Enter the name here' className='py-2 px-3 shadow-lg border-2 outline-none rounded-md w-full text-black' />
+                                {errors.name?.type === 'required' && <p className='ml-1 mt-2 text-red-400'>Your name is required</p>}
                             </div>
                             <div className="space-y-1">
                                 <label htmlFor="email" className='block font-medium ml-1'>Enter your email</label>
                                 <input {...register("email", { required: true })} id="email" placeholder='Enter your email address' className='py-2 px-3 shadow-lg border-2 outline-none rounded-md w-full text-black' />
+                                {errors.email?.type === 'required' && <p className='ml-1 mt-2 text-red-400'>Email is required</p>}
                             </div>
                             <div className="space-y-1">
                                 <label htmlFor="password" className='block font-medium ml-1'>Enter your password</label>
                                 <div className='relative'>
-                                    <input {...register("password", { required: true })} type={!showPass ? 'password' : 'text'} id="password" placeholder='Enter your password' className='py-2 px-3 shadow-lg border-2 outline-none rounded-md w-full text-black' />
+                                    <input {...register("password", {
+                                        required: true,
+                                        minLength: { value: 6, message: 'Password should contain 6 characters' },
+                                        maxLength: { value: 34, message: 'Password can not be more than 34 characters' },
+                                        validate: {
+                                            uppercase: (value) =>
+                                                /[A-Z]/.test(value) ||
+                                                'Password must contain at least one uppercase letter',
+                                            specialChar: (value) =>
+                                                /[!@#$%^&*]/.test(value) ||
+                                                'Password must contain at least one special character',
+                                        },
+                                    })} type={!showPass ? 'password' : 'text'} id="password" placeholder='Enter your password' className='py-2 px-3 shadow-lg border-2 outline-none rounded-md w-full text-black' />
                                     <div onClick={() => setShowPass(!showPass)}>
                                         {
                                             showPass ? <FaRegEye className='absolute right-5 top-1/3 text-slate-700 text-xl'></FaRegEye>
@@ -111,10 +125,12 @@ const Registration = () => {
                                         }
                                     </div>
                                 </div>
+                                {errors.password && <p role="alert" className='ml-1 mt-2 text-red-400'>{errors.password.message}</p>}
                             </div>
                             <div className="space-y-1">
                                 <label htmlFor="img" className='block font-medium ml-1'>Enter a valid image URL</label>
                                 <input {...register("img", { required: true })} placeholder='Enter URL here @example: https://img.com' className='py-2 px-3 shadow-lg border-2 outline-none rounded-md w-full text-black' />
+                                {errors.img?.type === 'required' && <p className='ml-1 mt-2 text-red-400'>Image URL is required</p>}
                             </div>
                         </div>
 
