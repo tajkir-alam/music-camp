@@ -1,13 +1,15 @@
 import React from 'react';
-import useAuth from '../../../hooks/useAuth';
 import { useQuery } from '@tanstack/react-query';
-import useLoader from '../../../hooks/useLoader';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
+import useLoader from '../../hooks/useLoader';
+import useAdmin from '../../hooks/userAdmin';
 
 const AllClasses = () => {
     const navigate = useNavigate();
     const { user, loader, setLoader } = useAuth();
+    const [isAdmin] = useAdmin();
 
     const { data: classes = [] } = useQuery({
         queryKey: ['instructors'],
@@ -56,7 +58,7 @@ const AllClasses = () => {
                                 <p className='text-lg mt-2 font-medium'>Available Seats: {singClass.availableSeats}</p>
                                 <button onClick={() => enrollClass(singClass._id)}
                                     className="btn text-white tracking-wider bg-slate-900 hover:bg-slate-700 dark:bg-slate-700 dark:hover:bg-slate-900"
-                                    disabled={singClass.availableSeats === 0 ? true : false}
+                                    disabled={singClass.availableSeats === 0 ? true : false || isAdmin && true}
                                 >
                                     Enroll Class
                                 </button>
