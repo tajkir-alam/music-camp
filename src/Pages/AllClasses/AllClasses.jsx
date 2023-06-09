@@ -5,11 +5,14 @@ import { useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import useLoader from '../../hooks/useLoader';
 import useAdmin from '../../hooks/userAdmin';
+import useInstructor from '../../hooks/userInstructor';
 
 const AllClasses = () => {
     const navigate = useNavigate();
     const { user, loader, setLoader } = useAuth();
     const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
+    console.log(isInstructor);
 
     const { data: classes = [] } = useQuery({
         queryKey: ['instructors'],
@@ -58,7 +61,7 @@ const AllClasses = () => {
                                 <p className='text-lg mt-2 font-medium'>Available Seats: {singClass.availableSeats}</p>
                                 <button onClick={() => enrollClass(singClass._id)}
                                     className="btn text-white tracking-wider bg-slate-900 hover:bg-slate-700 dark:bg-slate-700 dark:hover:bg-slate-900"
-                                    disabled={singClass.availableSeats === 0 ? true : false || isAdmin && true}
+                                    disabled={singClass.availableSeats === 0 ? true : false || isAdmin && true || isInstructor && true}
                                 >
                                     Enroll Class
                                 </button>
