@@ -1,11 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import useLoader from '../../hooks/useLoader';
+import useAuth from '../../hooks/useAuth';
 
 const AllInstructors = () => {
+    const { loader, setLoader } = useAuth();
     const { data: instructors = [] } = useQuery({
         queryKey: ['instructors'],
         queryFn: async () => {
+            setLoader(true)
             const res = await fetch('http://localhost:5000/instructors');
+            setLoader(false)
             return res.json();
         }
     })
@@ -13,6 +18,7 @@ const AllInstructors = () => {
 
     return (
         <div className="overflow-x-auto my-12 lg:px-4">
+            { loader && useLoader()}
             <table className="table text-center">
                 {/* head */}
                 <thead>
