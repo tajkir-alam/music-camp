@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import logo from '../../../assets/logo.png';
 import { Link, NavLink } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 const Navbar = () => {
+    const { user, logOut } = useAuth()
+    console.log(user);
+
     const [theme, setTheme] = useState(localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light');
 
     useEffect(() => {
@@ -26,7 +30,7 @@ const Navbar = () => {
         <li><NavLink className='uppercase font-medium' to='/'>Home</NavLink></li>
         <li><NavLink className='uppercase font-medium' to='/instructors'>Instructors</NavLink></li>
         <li><NavLink className='uppercase font-medium' to='/classes'>Classes</NavLink></li>
-        <li><NavLink className='uppercase font-medium' to='/dashboard'>Dashboard</NavLink></li>
+        {user && <li><NavLink className='uppercase font-medium' to='/dashboard'>Dashboard</NavLink></li>}
     </>
 
     return (
@@ -41,10 +45,10 @@ const Navbar = () => {
                             {menuBar}
                         </ul>
                     </div>
-                    <div className='h-8 lg:h-14 flex items-center gap-2'>
+                    <Link to='/' className='h-8 lg:h-14 flex items-center gap-2'>
                         <img src={logo} alt="" className='h-full' />
                         <p className='lg:text-4xl text-[#ffffffef] font-Courgette'>Music Camp</p>
-                    </div>
+                    </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 gap-1 text-white">
@@ -53,27 +57,31 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end gap-2 items-center">
 
-                    
+
+                    {user &&
                         <div className="dropdown dropdown-end">
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
-                                    <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                    <img src={user?.photoURL} />
                                 </div>
                             </label>
                             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                                <li>
+                                <li className='font-semibold'>
                                     <a className="justify-between">
                                         Profile
-                                        <span className="badge">New</span>
+                                        <span className="badge">{user?.displayName}</span>
                                     </a>
                                 </li>
-                                <li><a>Settings</a></li>
-                                <li><a>Logout</a></li>
+                                <li className='font-semibold'><a>Settings</a></li>
+                                <li className='font-semibold' onClick={logOut}><a>Logout</a></li>
                             </ul>
                         </div>
+                    }
 
+                    {!user &&
                         <Link to='/login' className='btn px-6'>Login</Link>
-                    
+                    }
+
 
                     <label className="swap swap-rotate">
                         {/* this hidden checkbox controls the state */}

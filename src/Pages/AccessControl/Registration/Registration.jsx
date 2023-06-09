@@ -32,7 +32,6 @@ const Registration = () => {
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
-        console.log(data);
         setError('');
         emailSignup(data.email, data.password, data.name, data.img)
             .then(result => {
