@@ -7,9 +7,9 @@ import useAuth from '../../../hooks/useAuth';
 
 const StudentCart = () => {
     const [axiosSecure] = useAxiosSecure();
-    const {user} = useAuth();
+    const { user } = useAuth();
 
-    const { data: cart = [] } = useQuery({
+    const { data: cart = [], refetch } = useQuery({
         queryKey: ['cart'],
         queryFn: async () => {
             // setLoader(true);
@@ -18,7 +18,6 @@ const StudentCart = () => {
             return res.data;
         }
     })
-    console.log(cart);
 
     const handleDelete = (id) => {
         Swal.fire({
@@ -31,12 +30,9 @@ const StudentCart = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://bistro-boss-server-data.vercel.app/cart/${id}`, {
-                    method: 'DELETE'
-                })
-                    .then(res => res.json())
+                axiosSecure.delete(`/cart/${id}`)
                     .then(data => {
-                        if (data.deletedCount > 0) {
+                        if (data.data.deletedCount > 0) {
                             refetch();
                             Swal.fire(
                                 'Deleted!',
@@ -63,30 +59,30 @@ const StudentCart = () => {
                 </thead>
                 <tbody>
                     {
-                        cart.map(item =>
+                        cart.map((item, index) =>
                             <tr key={item._id}>
                                 <th>
-                                    #
+                                    {index + 1}
                                 </th>
                                 <td>
                                     <div className="flex items-center space-x-3">
                                         <div className="avatar">
-                                            <div className="mask mask-squircle w-12 h-12">
-                                                <img src="/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                                            <div className="mask mask-square rounded-md w-16 h-16">
+                                                <img src={item.image} alt="Avatar Tailwind CSS Component" />
                                             </div>
                                         </div>
                                         <div>
-                                            <div className="font-bold">Hart Hagerty</div>
+                                            <div className="font-bold">{item.name}</div>
                                             <div className="text-sm opacity-50">United States</div>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    Zemlak, Daniel and Leannon
+                                    <span className="font-medium">{item.instructorName}</span>
                                     <br />
-                                    <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
+                                    <span className="badge badge-ghost badge-sm p-0">{item.instructorEmail}</span>
                                 </td>
-                                <td>Purple</td>
+                                <td className='font-medium text-slate-700'><span className='mr-1'>$</span>{item.price}</td>
                                 <th>
                                     <th>
                                         <button onClick={() => handleDelete(item._id)} className="btn btn-error text-2xl text-white duration-300 bg-[#FF0000]"><FaRegTrashAlt /></button>
