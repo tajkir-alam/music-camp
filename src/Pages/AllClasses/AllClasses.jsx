@@ -4,15 +4,14 @@ import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import useLoader from '../../hooks/useLoader';
-import useAdmin from '../../hooks/userAdmin';
-import useInstructor from '../../hooks/userInstructor';
+import useAdmin from '../../hooks/useAdmin';
+import useInstructor from '../../hooks/useInstructor';
 
 const AllClasses = () => {
     const navigate = useNavigate();
     const { user, loader, setLoader } = useAuth();
     const [isAdmin] = useAdmin();
     const [isInstructor] = useInstructor();
-    console.log(isInstructor);
 
     const { data: classes = [] } = useQuery({
         queryKey: ['instructors'],

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import logo from '../../../assets/logo.png';
 import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
-import useAdmin from '../../../hooks/userAdmin';
-import useInstructor from '../../../hooks/userInstructor';
+import useAdmin from '../../../hooks/useAdmin';
+import useInstructor from '../../../hooks/useInstructor';
 
 const Navbar = () => {
     const { user, logOut } = useAuth();

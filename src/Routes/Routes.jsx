@@ -7,6 +7,8 @@ import AllInstructors from "../Pages/AllInstructors/AllInstructors";
 import AllClasses from "../Pages/AllClasses/AllClasses";
 import StudentDashboard from "../Pages/Dashboard/StudentDashboard/StudentDashboard";
 import InstructorDashboard from "../Pages/Dashboard/InstructorDashboard/InstructorDashboard";
+import StudentRoute from "./StudentRoute";
+import InstructorRoute from "./InstructorRoute";
 
 const router = createBrowserRouter([
     {
@@ -35,14 +37,18 @@ const router = createBrowserRouter([
             },
             {
                 path: 'student-dashboard',
-                element: <StudentDashboard></StudentDashboard>
+                element: <StudentRoute><StudentDashboard></StudentDashboard></StudentRoute>
             },
             {
                 path: 'instructor-dashboard',
-                element: <InstructorDashboard></InstructorDashboard>
+                element: <InstructorRoute><InstructorDashboard></InstructorDashboard></InstructorRoute>
             }
         ]
     },
+    {
+        path: 'dashboard',
+        // element: <
+    }
 ]);
 
 export default router;
