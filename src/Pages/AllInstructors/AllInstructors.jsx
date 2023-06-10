@@ -2,16 +2,18 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import useLoader from '../../hooks/useLoader';
 import useAuth from '../../hooks/useAuth';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const AllInstructors = () => {
     const { loader, setLoader } = useAuth();
+    const [axiosSecure] = useAxiosSecure();
     const { data: instructors = [] } = useQuery({
         queryKey: ['instructors'],
         queryFn: async () => {
             setLoader(true)
-            const res = await fetch('http://localhost:5000/instructors');
+            const res = await axiosSecure.get('/instructors');
             setLoader(false)
-            return res.json();
+            return res.data;
         }
     })
 

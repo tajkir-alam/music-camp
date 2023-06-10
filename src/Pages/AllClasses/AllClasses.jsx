@@ -21,19 +21,19 @@ const AllClasses = () => {
         queryKey: ['classes'],
         queryFn: async () => {
             setLoader(true);
-            const res = await fetch('http://localhost:5000/classes');
+            const res = await axiosSecure.get('/classes');
             setLoader(false);
-            return res.json();
+            return res.data;
         }
     })
 
     const { data: cartAdded = [], refetch } = useQuery({
         queryKey: ['cartAdded'],
         queryFn: async () => {
-            // setLoader(true);
-            const res = await axiosSecure.get('/added-to-cart');
-            // setLoader(false);
-            return res.data;
+            if (user) {
+                const res = await axiosSecure.get('/added-to-cart');
+                return res.data;
+            }
         }
     })
 

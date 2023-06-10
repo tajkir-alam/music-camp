@@ -106,7 +106,7 @@ const Dashboard = () => {
                 </div>
             </section>
 
-            <label htmlFor="my-drawer-2" className="btn btn-outline border-0 text-white text-lg drawer-button lg:hidden absolute inset-y-5 left-48  z-30"><FaAlignJustify></FaAlignJustify></label>
+            <label htmlFor="my-drawer-2" className="btn btn-outline border-0 text-white text-lg drawer-button lg:hidden absolute inset-y-5 left-48 z-30"><FaAlignJustify></FaAlignJustify></label>
             <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content bg-[#F6F6F6]">
@@ -115,7 +115,7 @@ const Dashboard = () => {
 
                     <Outlet></Outlet>
                 </div>
-                <div className="drawer-side">
+                <div className="drawer-side mt-20 lg:mt-0">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <div className="menu p-4 w-72 h-full bg-[#000000e0] text-white">
                         {/* Sidebar content here */}
