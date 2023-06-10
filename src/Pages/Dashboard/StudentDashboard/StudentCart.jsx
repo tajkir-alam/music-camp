@@ -45,6 +45,8 @@ const StudentCart = () => {
         })
     }
 
+    const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
+
     return (
         <div className="overflow-x-auto m-4">
             <table className="table">
@@ -53,17 +55,17 @@ const StudentCart = () => {
                         <th>No.</th>
                         <th>Class</th>
                         <th>Instructor</th>
-                        <th>Price</th>
-                        <th>Action</th>
+                        <th className='lg:pl-20'>Price</th>
+                        <th className='flex justify-evenly'>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
                         cart.map((item, index) =>
                             <tr key={item._id}>
-                                <th>
+                                <td>
                                     {index + 1}
-                                </th>
+                                </td>
                                 <td>
                                     <div className="flex items-center space-x-3">
                                         <div className="avatar">
@@ -82,15 +84,22 @@ const StudentCart = () => {
                                     <br />
                                     <span className="badge badge-ghost badge-sm p-0">{item.instructorEmail}</span>
                                 </td>
-                                <td className='font-medium text-slate-700'><span className='mr-1'>$</span>{item.price}</td>
-                                <th>
-                                    <th>
-                                        <button onClick={() => handleDelete(item._id)} className="btn btn-error text-2xl text-white duration-300 bg-[#FF0000]"><FaRegTrashAlt /></button>
-                                    </th>
-                                </th>
+                                <td className='font-medium text-slate-700 lg:pl-20'>$ {item.price}</td>
+                                <td className='flex justify-evenly'>
+                                    <button onClick={() => handleDelete(item._id)} className="btn btn-error text-2xl text-white duration-300 bg-[#FF0000]"><FaRegTrashAlt /></button>
+                                </td>
                             </tr>
                         )
                     }
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td className='font-medium text-slate-700 text-lg'>Total: $ {totalPrice}</td>
+                        <td>
+                            <button onClick={() => handleDelete(item._id)} className="btn btn-outline btn-primary tracking-wide normal-case duration-300">Proceed to Pay</button>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
