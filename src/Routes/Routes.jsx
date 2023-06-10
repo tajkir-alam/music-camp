@@ -9,6 +9,7 @@ import StudentDashboard from "../Pages/Dashboard/StudentDashboard/StudentDashboa
 import InstructorDashboard from "../Pages/Dashboard/InstructorDashboard/InstructorDashboard";
 import StudentRoute from "./StudentRoute";
 import InstructorRoute from "./InstructorRoute";
+import Dashboard from "../layout/Dashboard";
 
 const router = createBrowserRouter([
     {
@@ -34,20 +35,22 @@ const router = createBrowserRouter([
             {
                 path: 'classes',
                 element: <AllClasses></AllClasses>
-            },
-            {
-                path: 'student-dashboard',
-                element: <StudentRoute><StudentDashboard></StudentDashboard></StudentRoute>
-            },
-            {
-                path: 'instructor-dashboard',
-                element: <InstructorRoute><InstructorDashboard></InstructorDashboard></InstructorRoute>
             }
         ]
     },
     {
         path: 'dashboard',
-        // element: <
+        element: <Dashboard></Dashboard>,
+        children: [
+            {
+                path: 'student',
+                element: <StudentRoute><StudentDashboard></StudentDashboard></StudentRoute>
+            },
+            {
+                path: 'instructor',
+                element: <InstructorRoute><InstructorDashboard></InstructorDashboard></InstructorRoute>
+            }
+        ]
     }
 ]);
 

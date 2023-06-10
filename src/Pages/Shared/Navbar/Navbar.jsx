@@ -4,11 +4,13 @@ import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import useAdmin from '../../../hooks/useAdmin';
 import useInstructor from '../../../hooks/useInstructor';
+import useStudent from '../../../hooks/useStudent';
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
     const [isAdmin] = useAdmin();
     const [isInstructor] = useInstructor();
+    const [isStudent] = useStudent();
     const [theme, setTheme] = useState(localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light');
 
     useEffect(() => {
@@ -32,7 +34,7 @@ const Navbar = () => {
         <li><NavLink className='uppercase font-medium' to='/'>Home</NavLink></li>
         <li><NavLink className='uppercase font-medium' to='/instructors'>Instructors</NavLink></li>
         <li><NavLink className='uppercase font-medium' to='/classes'>Classes</NavLink></li>
-        {user && <li><NavLink className='uppercase font-medium' to={isAdmin && '/admin-dashboard' || isInstructor && 'instructor-dashboard' || 'student-dashboard'}>Dashboard</NavLink></li>}
+        {user && <li><NavLink className='uppercase font-medium' to={isAdmin && 'dashboard/admin' || isInstructor && 'dashboard/instructor' || isStudent && 'dashboard/student'}>Dashboard</NavLink></li>}
     </>
 
     return (
