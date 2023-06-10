@@ -23,7 +23,7 @@ const AllClasses = () => {
         }
     })
 
-    const enrollClass = (id) => {
+    const addToCartBtn = (id) => {
         if (!user) {
             Swal.fire({
                 title: 'You have to login',
@@ -47,7 +47,7 @@ const AllClasses = () => {
             {
                 classes.map(singClass =>
                     <div className={singClass.availableSeats === 0 ? 'bg-[#FF0000] card card-compact duration-500 shadow-xl dark:hover:shadow-white dark:hover:shadow-md scale-100 hover:scale-105' :
-                        `card card-compact bg-base-200 duration-500 shadow-xl dark:hover:shadow-white dark:hover:shadow-md scale-100 hover:scale-105`}
+                        `card card-compact bg-base-100 duration-500 shadow-xl dark:hover:shadow-white dark:hover:shadow-md scale-100 hover:scale-105`}
                         key={singClass._id}>
                         <figure><img src={singClass.image} alt="" className='h-52 w-full' /></figure>
                         <div className="card-body">
@@ -58,11 +58,11 @@ const AllClasses = () => {
                             <p className='font-semibold text-slate-600 dark:text-slate-500'>Class will be Taken by <span className='font-bold dark:text-slate-400'>{singClass.instructorName}</span></p>
                             <div className="card-actions justify-end items mt-4">
                                 <p className='text-lg mt-2 font-medium'>Available Seats: {singClass.availableSeats}</p>
-                                <button onClick={() => enrollClass(singClass._id)}
-                                    className="btn text-white tracking-wider bg-slate-900 hover:bg-slate-700 dark:bg-slate-700 dark:hover:bg-slate-900"
+                                <button onClick={() => addToCartBtn(singClass._id)}
+                                    className="btn text-white tracking-wider btn-error dark:bg-slate-700 dark:hover:bg-slate-900"
                                     disabled={singClass.availableSeats === 0 ? true : false || isAdmin && true || isInstructor && true}
                                 >
-                                    Enroll Class
+                                    Add To Cart
                                 </button>
                             </div>
                         </div>
