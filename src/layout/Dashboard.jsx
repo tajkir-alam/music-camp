@@ -36,7 +36,7 @@ const Dashboard = () => {
         <li><NavLink className='uppercase font-medium' to='/'>Home</NavLink></li>
         <li><NavLink className='uppercase font-medium' to='/instructors'>Instructors</NavLink></li>
         <li><NavLink className='uppercase font-medium' to='/classes'>Classes</NavLink></li>
-        {user && <li><NavLink className='uppercase font-medium' to={isAdmin && 'dashboard/admin' || isInstructor && 'dashboard/instructor' || isStudent && 'dashboard/student'}>Dashboard</NavLink></li>}
+        {user && <li><NavLink className='uppercase font-medium' to={isAdmin && '/dashboard/admin' || isInstructor && '/dashboard/instructor' || isStudent && '/dashboard/student'}>Dashboard</NavLink></li>}
     </>
 
     return (
@@ -48,7 +48,7 @@ const Dashboard = () => {
                             <label tabIndex={0} className="btn btn-ghost lg:hidden">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="white"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                             </label>
-                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow glass text-white rounded-box w-52">
+                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-blue-700 text-white rounded-box w-52">
                                 {menuBar}
                             </ul>
                         </div>
@@ -106,46 +106,37 @@ const Dashboard = () => {
                 </div>
             </section>
 
+            <label htmlFor="my-drawer-2" className="btn btn-outline border-0 text-white text-lg drawer-button lg:hidden absolute inset-y-5 left-48  z-30"><FaAlignJustify></FaAlignJustify></label>
             <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content bg-[#F6F6F6]">
                     {/* Page content here */}
+
+
                     <Outlet></Outlet>
-
-                    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden absolute left-2 top-2"><FaAlignJustify></FaAlignJustify></label>
-
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <div className="menu p-4 w-80 h-full bg-[#000000e0] text-white">
                         {/* Sidebar content here */}
-                        
-                        <div className='divide-y-2 space-y-8'>
-                            {true ?
-                                <ul>
-                                    <li className='uppercase'><NavLink className='font-semibold' to={'/dashboard/admin'}><FaHome />Admin home</NavLink></li>
-                                    <li className='uppercase'><NavLink className='font-semibold' to={'add-items'}><FaUtensils />Add items</NavLink></li>
-                                    <li className='uppercase'><NavLink className='font-semibold' to={'manage-items'}><FaListUl />manage items</NavLink></li>
-                                    <li className='uppercase'><NavLink className='font-semibold' to={'bookings'}><FaBook />manage bookings</NavLink></li>
-                                    <li className='uppercase'><NavLink className='font-semibold' to={'allusers'}><FaUsers />all users</NavLink></li>
-                                </ul>
-                                :
-                                <ul>
-                                    <li className='uppercase'><NavLink className='font-semibold' to={'/dashboard/user'}><FaHome />User home</NavLink></li>
-                                    <li className='uppercase'><NavLink className='font-semibold' to={'reservation'}><FaCalendarAlt />reservation</NavLink></li>
-                                    <li className='uppercase'><NavLink className='font-semibold' to={'payment'}><FaWallet />payment history</NavLink></li>
-                                    <li className='uppercase'><NavLink className='font-semibold' to={'cart'}><FaShoppingCart />my cart</NavLink></li>
-                                    <li className='uppercase'><NavLink className='font-semibold' to={'review'}><FaGrinStars />add review</NavLink></li>
-                                    <li className='uppercase'><NavLink className='font-semibold' to={'booking'}><FaCalendarCheck />my booking</NavLink></li>
-                                </ul>
-                            }
-                            <ul>
-                                <li className='uppercase'><NavLink className='font-semibold' to={'/'}><FaHome />hom</NavLink></li>
-                                <li className='uppercase'><NavLink className='font-semibold' to={'/menu'}><FaAlignJustify />menu</NavLink></li>
-                                <li className='uppercase'><NavLink className='font-semibold' to={'/shop/salad'}><FaShoppingBag />Shop</NavLink></li>
-                                <li className='uppercase'><NavLink className='font-semibold' to={'/contact'}><FaEnvelope />contact</NavLink></li>
+                        {true ?
+                            <ul className='space-y-5'>
+                                <li className='uppercase'><NavLink className='font-semibold' to={'/dashboard/admin'}><FaHome />Admin home</NavLink></li>
+                                <li className='uppercase'><NavLink className='font-semibold' to={'add-items'}><FaUtensils />Add items</NavLink></li>
+                                <li className='uppercase'><NavLink className='font-semibold' to={'manage-items'}><FaListUl />manage items</NavLink></li>
+                                <li className='uppercase'><NavLink className='font-semibold' to={'bookings'}><FaBook />manage bookings</NavLink></li>
+                                <li className='uppercase'><NavLink className='font-semibold' to={'allusers'}><FaUsers />all users</NavLink></li>
                             </ul>
-                        </div>
+                            :
+                            <ul className='space-y-5'>
+                                <li className='uppercase'><NavLink className='font-semibold' to={'/dashboard/user'}><FaHome />User home</NavLink></li>
+                                <li className='uppercase'><NavLink className='font-semibold' to={'reservation'}><FaCalendarAlt />reservation</NavLink></li>
+                                <li className='uppercase'><NavLink className='font-semibold' to={'payment'}><FaWallet />payment history</NavLink></li>
+                                <li className='uppercase'><NavLink className='font-semibold' to={'cart'}><FaShoppingCart />my cart</NavLink></li>
+                                <li className='uppercase'><NavLink className='font-semibold' to={'review'}><FaGrinStars />add review</NavLink></li>
+                                <li className='uppercase'><NavLink className='font-semibold' to={'booking'}><FaCalendarCheck />my booking</NavLink></li>
+                            </ul>
+                        }
                     </div>
 
                 </div>
