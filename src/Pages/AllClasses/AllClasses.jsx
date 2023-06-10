@@ -6,23 +6,27 @@ import useAuth from '../../hooks/useAuth';
 import useLoader from '../../hooks/useLoader';
 import useAdmin from '../../hooks/useAdmin';
 import useInstructor from '../../hooks/useInstructor';
+import useStudent from '../../hooks/useStudent';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const AllClasses = () => {
     const navigate = useNavigate();
     const { user, loader, setLoader } = useAuth();
     const [isAdmin] = useAdmin();
     const [isInstructor] = useInstructor();
+    const [isStudent] = useStudent();
+    const [axiosSecure] = useAxiosSecure();
 
     const { data: classes = [] } = useQuery({
         queryKey: ['instructors'],
         queryFn: async () => {
-            setLoader(true)
+            setLoader(true);
             const res = await fetch('http://localhost:5000/classes');
-            setLoader(false)
+            setLoader(false);
             return res.json();
         }
     })
-
+    
     const addToCartBtn = (id) => {
         if (!user) {
             Swal.fire({
@@ -38,6 +42,24 @@ const AllClasses = () => {
                     navigate('/login')
                 }
             })
+        }
+        else if (user && isStudent) {
+            const addClass = classes.find(classIs => classIs._id === id);
+            const { image, name, instructorEmail, instructorName, price, availableSeats, _id } = addClass;
+            const cartClass = { image, name, instructorEmail, instructorName, price, availableSeats, classId: _id };
+            axiosSecure.post('/cart', cartClass)
+                .then(data => {
+                    if (data.data.insertedId) {
+                        // reset(); 
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Your item has been added',
+                            showConfirmButton: false,
+                            timer: 1000
+                        })
+                    }
+                })
         }
     }
 
