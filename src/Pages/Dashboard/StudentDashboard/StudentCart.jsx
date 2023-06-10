@@ -4,21 +4,14 @@ import { FaRegTrashAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import useAuth from '../../../hooks/useAuth';
+import { Link } from 'react-router-dom';
+import useCart from '../../../hooks/useCart';
 
 const StudentCart = () => {
     const [axiosSecure] = useAxiosSecure();
-    const { user } = useAuth();
-
-    const { data: cart = [], refetch } = useQuery({
-        queryKey: ['cart'],
-        queryFn: async () => {
-            // setLoader(true);
-            const res = await axiosSecure.get(`/cart?email=${user.email}`);
-            // setLoader(false);
-            return res.data;
-        }
-    })
-
+    const { user, loader } = useAuth();
+    const [cart, refetch, totalPrice] = useCart();
+    
     const handleDelete = (id) => {
         Swal.fire({
             title: 'Are you sure?',
@@ -44,8 +37,6 @@ const StudentCart = () => {
             }
         })
     }
-
-    const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
 
     return (
         <div className="overflow-x-auto m-4">
@@ -97,7 +88,9 @@ const StudentCart = () => {
                         <td></td>
                         <td className='font-medium text-slate-700 text-lg'>Total: $ {totalPrice}</td>
                         <td>
-                            <button onClick={() => handleDelete(item._id)} className="btn btn-outline btn-primary tracking-wide normal-case duration-300">Proceed to Pay</button>
+                            <Link to='/dashboard/checkout'>
+                                <button className="btn btn-outline btn-primary tracking-wide normal-case duration-300">Proceed to Pay</button>
+                            </Link>
                         </td>
                     </tr>
                 </tbody>

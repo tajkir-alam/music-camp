@@ -12,7 +12,7 @@ import InstructorRoute from "./InstructorRoute";
 import Dashboard from "../layout/Dashboard";
 import StudentCart from "../Pages/Dashboard/StudentDashboard/StudentCart";
 import StudentClasses from "../Pages/Dashboard/StudentDashboard/StudentClasses";
-import Payment from "../Pages/Dashboard/Payment/Payment";
+import Checkout from "../Pages/Dashboard/Checkout/Checkout";
 
 const router = createBrowserRouter([
     {
@@ -62,8 +62,8 @@ const router = createBrowserRouter([
                 element: <StudentRoute><StudentClasses></StudentClasses></StudentRoute>
             },
             {
-                path: 'student/payment',
-                element: <StudentRoute><Payment></Payment></StudentRoute>
+                path: 'checkout',
+                element: <Checkout></Checkout>
             }
         ]
     }
