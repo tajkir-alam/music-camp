@@ -1,4 +1,3 @@
-import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { FaRegTrashAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
@@ -42,6 +41,10 @@ const StudentCart = () => {
                 totalPrice === 0 &&
                 <h1 className='text-3xl text-center text-primary dark:text-white shadow-md dark:shadow-white py-5 w-4/5 mx-auto mt-20 font-semibold font-Courgette'>You do not have any class in your cart.</h1>
             }
+
+            <h1 className='text-3xl text-center text-slate-600 underline dark:text-white py-5 w-4/5 mx-auto mt-4 font-semibold font-Courgette'>
+                &nbsp; My Cart &nbsp;
+            </h1>
             <div className="overflow-x-auto m-4">
                 <table className={`${totalPrice === 0 && 'hidden'} table`}>
                     <thead>

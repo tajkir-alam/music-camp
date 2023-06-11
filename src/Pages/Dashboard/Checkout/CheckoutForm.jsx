@@ -78,7 +78,7 @@ const CheckoutForm = ({ totalPrice, purchasedClass, cartId }) => {
                 amount: totalPrice,
                 date: new Date(),
                 courseId: purchasedClass._id,
-                classNames: purchasedClass.name,
+                className: purchasedClass.name,
                 classImg: purchasedClass.image,
                 instructorName: purchasedClass.instructorName,
                 instructorEmail: purchasedClass.instructorEmail
@@ -129,10 +129,6 @@ const CheckoutForm = ({ totalPrice, purchasedClass, cartId }) => {
                     </button>
                 </div>
             </form>
-
-            {transactionId &&
-                <p className='mt-6 font-medium tracking-wider text-lg text-red-500'>Payment done with this transaction id: <span className='text-red-700'>'{transactionId}'</span></p>
-            }
         </div>
     );
 };
