@@ -12,7 +12,7 @@ const PaymentHistory = () => {
         queryKey: ['paymentHistory'],
         queryFn: async () => {
             setLoader(true)
-            const res = await axiosSecure.get('/payment');
+            const res = await axiosSecure.get('/payment?sort=-1');
             setLoader(false)
             return res.data;
         }
