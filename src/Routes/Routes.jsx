@@ -14,6 +14,7 @@ import StudentCart from "../Pages/Dashboard/StudentDashboard/StudentCart";
 import StudentClasses from "../Pages/Dashboard/StudentDashboard/StudentClasses";
 import Checkout from "../Pages/Dashboard/StudentDashboard/Checkout";
 import PaymentHistory from "../Pages/Dashboard/StudentDashboard/PaymentHistory";
+import AddClass from "../Pages/Dashboard/InstructorDashboard/AddClass";
 
 const router = createBrowserRouter([
     {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
             {
                 path: 'instructor',
                 element: <InstructorRoute><InstructorDashboard></InstructorDashboard></InstructorRoute>,
+            },
+            {
+                path: 'instructor/add-class',
+                element: <InstructorRoute><AddClass></AddClass></InstructorRoute>
             },
             {
                 path: 'student',

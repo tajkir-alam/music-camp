@@ -130,11 +130,8 @@ const Dashboard = () => {
                                 :
                                 isInstructor ?
                                     <ul className='space-y-8'>
-                                        <li className='uppercase'><NavLink className='font-semibold' to={'reservation'}><FaFolderPlus />Add Class</NavLink></li>
+                                        <li className='uppercase'><NavLink className='font-semibold' to={'instructor/add-class'}><FaFolderPlus />Add Class</NavLink></li>
                                         <li className='uppercase'><NavLink className='font-semibold' to={'payment'}><FaBook />My Class</NavLink></li>
-                                        <li className='uppercase'><NavLink className='font-semibold' to={'cart'}><FaShoppingCart />my cart</NavLink></li>
-                                        <li className='uppercase'><NavLink className='font-semibold' to={'review'}><FaGrinStars />add review</NavLink></li>
-                                        <li className='uppercase'><NavLink className='font-semibold' to={'booking'}><FaCalendarCheck />my booking</NavLink></li>
                                     </ul>
                                     :
                                     isStudent ?
