@@ -141,7 +141,7 @@ const Dashboard = () => {
                                         <ul className='space-y-8'>
                                             <li className='uppercase'><NavLink className='font-semibold' to={'student/cart'}><FaShoppingCart />my cart</NavLink></li>
                                             <li className='uppercase'><NavLink className='font-semibold' to={'student/enrolled-classes'}><FaBookReader />My classes</NavLink></li>
-                                            <li className='uppercase'><NavLink className='font-semibold' to={'student/payment'}><FaWallet />payment history</NavLink></li>
+                                            <li className='uppercase'><NavLink className='font-semibold' to={'student/payment-history'}><FaWallet />payment history</NavLink></li>
                                         </ul>
                                         : ""
                         }

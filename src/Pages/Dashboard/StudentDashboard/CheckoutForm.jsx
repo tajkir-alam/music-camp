@@ -93,7 +93,7 @@ const CheckoutForm = ({ totalPrice, purchasedClass, cartId }) => {
                             showConfirmButton: false,
                             timer: 1500
                         })
-                        navigate('/dashboard/student/enrolled-classes')
+                        navigate('/dashboard/student/enrolled-classes');
                     }
                 })
         }

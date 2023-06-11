@@ -13,6 +13,7 @@ import Dashboard from "../layout/Dashboard";
 import StudentCart from "../Pages/Dashboard/StudentDashboard/StudentCart";
 import StudentClasses from "../Pages/Dashboard/StudentDashboard/StudentClasses";
 import Checkout from "../Pages/Dashboard/StudentDashboard/Checkout";
+import PaymentHistory from "../Pages/Dashboard/StudentDashboard/PaymentHistory";
 
 const router = createBrowserRouter([
     {
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
             {
                 path: 'checkout',
                 element: <Checkout></Checkout>
+            },
+            {
+                path: 'student/payment-history',
+                element: <PaymentHistory></PaymentHistory>
             }
         ]
     }
