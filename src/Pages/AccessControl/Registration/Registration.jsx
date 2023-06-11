@@ -38,7 +38,7 @@ const Registration = () => {
                 const user = result.user;
                 const userInfo = { name: data.name, email: data.email, role: 'Student' };
                 if (user) {
-                    fetch('http://localhost:5000/users', {
+                    fetch('https://music-camp-server-data.vercel.app/users', {
                         method: "POST",
                         headers: {
                             'content-type': 'application/json',
@@ -72,7 +72,7 @@ const Registration = () => {
                 const user = result.user;
                 const userInfo = { name: user.name, email: user.email, role: 'Student' };
                 if (user) {
-                    fetch('http://localhost:5000/users', {
+                    fetch('https://music-camp-server-data.vercel.app/users', {
                         method: "POST",
                         headers: {
                             'content-type': 'application/json',

@@ -5,13 +5,13 @@ import useAuth from '../../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-const CheckoutForm = ({ cart, totalPrice, refetch }) => {
+const CheckoutForm = ({ totalPrice }) => {
+    const { user } = useAuth();
     const stripe = useStripe();
     const elements = useElements();
     const [axiosSecure] = useAxiosSecure()
     const [cardError, setCardError] = useState('');
     const [clientSecret, setClientSecret] = useState('');
-    const { user } = useAuth();
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
     const navigate = useNavigate('');
@@ -75,7 +75,6 @@ const CheckoutForm = ({ cart, totalPrice, refetch }) => {
                 transactionId: paymentIntent.id,
                 totalPrice,
                 date: new Date(),
-                quantity: cart.length,
                 cartsItems: cart.map(item => item._id),
                 courseId: cart.map(item => item.classId),
                 itemNames: cart.map(item => item.name),
@@ -101,6 +100,7 @@ const CheckoutForm = ({ cart, totalPrice, refetch }) => {
     return (
         <div className='custom-container h-screen mt-[50%] lg:mt-[25%]'>
             <h1 className='text-5xl text-center m-0 p-0'>PAYMENT</h1>
+            <h1 className='text-3xl text-center'>Amount to pay: $ {totalPrice}</h1>
             <form onSubmit={handleSubmit} className='mt-8 form space-y-5'>
                 <CardElement
                     options={{

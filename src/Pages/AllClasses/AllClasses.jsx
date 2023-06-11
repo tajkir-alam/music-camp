@@ -8,24 +8,16 @@ import useAdmin from '../../hooks/useAdmin';
 import useInstructor from '../../hooks/useInstructor';
 import useStudent from '../../hooks/useStudent';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+import useClasses from '../../hooks/useClasses';
 
 const AllClasses = () => {
     const navigate = useNavigate();
-    const { user, loader, setLoader } = useAuth();
+    const { user, loader } = useAuth();
     const [isAdmin] = useAdmin();
+    const [classes] = useClasses();
     const [isInstructor] = useInstructor();
     const [isStudent] = useStudent();
     const [axiosSecure] = useAxiosSecure();
-
-    const { data: classes = [] } = useQuery({
-        queryKey: ['classes'],
-        queryFn: async () => {
-            setLoader(true);
-            const res = await axiosSecure.get('/classes');
-            setLoader(false);
-            return res.data;
-        }
-    })
 
     const { data: cartAdded = [], refetch } = useQuery({
         queryKey: ['cartAdded'],
