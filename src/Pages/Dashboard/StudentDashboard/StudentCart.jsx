@@ -80,7 +80,7 @@ const StudentCart = () => {
                                     </td>
                                     <td className='font-medium text-slate-700 lg:pl-20'>$ {item.price}</td>
                                     <td className='flex justify-evenly'>
-                                        <Link to='/dashboard/checkout' state={{ totalPrice: item.price, classId: item.classId }}>
+                                        <Link to='/dashboard/checkout' state={{ totalPrice: item.price, classId: item.classId, cartId: item._id }}>
                                             <button className="btn btn-outline btn-primary tracking-wide normal-case duration-300">Proceed to Pay</button>
                                         </Link>
                                         <button onClick={() => handleDelete(item._id)} className="btn btn-error text-2xl text-white duration-300 bg-[#FF0000]"><FaRegTrashAlt /></button>

@@ -9,6 +9,7 @@ const useAxiosSecure = () => {
     const navigate = useNavigate();
 
     const axiosSecure = axios.create({
+        // baseURL: 'http://localhost:5000',
         baseURL: 'https://music-camp-server-data.vercel.app',
     });
 

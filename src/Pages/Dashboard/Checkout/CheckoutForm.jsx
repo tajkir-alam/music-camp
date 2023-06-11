@@ -5,7 +5,7 @@ import useAuth from '../../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-const CheckoutForm = ({ totalPrice }) => {
+const CheckoutForm = ({ totalPrice, purchasedClass, cartId }) => {
     const { user } = useAuth();
     const stripe = useStripe();
     const elements = useElements();
@@ -71,14 +71,17 @@ const CheckoutForm = ({ totalPrice }) => {
         if (paymentIntent.status === 'succeeded') {
             setTransactionId(paymentIntent.id);
             const payment = {
-                email: user?.email,
+                customerEmail: user?.email,
+                customerName: user?.displayName,
                 transactionId: paymentIntent.id,
-                totalPrice,
+                cartId,
+                amount: totalPrice,
                 date: new Date(),
-                cartsItems: cart.map(item => item._id),
-                courseId: cart.map(item => item.classId),
-                itemNames: cart.map(item => item.name),
-                status: 'Pending',
+                courseId: purchasedClass._id,
+                classNames: purchasedClass.name,
+                classImg: purchasedClass.image,
+                instructorName: purchasedClass.instructorName,
+                instructorEmail: purchasedClass.instructorEmail
             }
             axiosSecure.post('/payment', payment)
                 .then(res => {
