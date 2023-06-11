@@ -1,15 +1,12 @@
-import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { FaRegTrashAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
-import useAuth from '../../../hooks/useAuth';
 import { Link } from 'react-router-dom';
 import useCart from '../../../hooks/useCart';
 
 const StudentCart = () => {
     const [axiosSecure] = useAxiosSecure();
-    const { user, loader } = useAuth();
     const [cart, refetch, totalPrice] = useCart();
     
     const handleDelete = (id) => {
