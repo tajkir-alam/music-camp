@@ -2,6 +2,7 @@ import React from 'react';
 import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
+import Swal from 'sweetalert2';
 
 const StudentClasses = () => {
     const { setLoader } = useAuth();
@@ -17,6 +18,16 @@ const StudentClasses = () => {
         }
     })
 
+    const handleStartClass = (img) => {
+        Swal.fire({
+            title: 'Keep Patience',
+            text: 'Your class will start soon.',
+            imageUrl: img,
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+          })
+    }
 
     return (
         <>
@@ -30,7 +41,6 @@ const StudentClasses = () => {
                             <th>No.</th>
                             <th>Class</th>
                             <th>Instructor</th>
-                            <th className='lg:pl-20'>Price</th>
                             <th className='flex justify-evenly'>Action</th>
                         </tr>
                     </thead>
@@ -50,7 +60,6 @@ const StudentClasses = () => {
                                             </div>
                                             <div>
                                                 <div className="font-bold">{item.className}</div>
-                                                <div className="text-sm opacity-50">United States</div>
                                             </div>
                                         </div>
                                     </td>
@@ -59,12 +68,8 @@ const StudentClasses = () => {
                                         <br />
                                         <span className="badge badge-ghost badge-sm p-0">{item.instructorEmail}</span>
                                     </td>
-                                    <td className='font-medium text-slate-700 lg:pl-20'>$ {item.amount}</td>
                                     <td className='flex justify-evenly'>
-                                        {/* <Link to='/dashboard/checkout'>
-                                            <button className="btn btn-outline btn-primary tracking-wide normal-case duration-300">Proceed to Pay</button>
-                                        </Link> */}
-                                        <button onClick={() => handleDelete(item._id)} className="btn btn-error text-2xl text-white duration-300 bg-[#FF0000]">Start Class</button>
+                                        <button onClick={() => handleStartClass(item.classImg)} className="btn btn-error text-white tracking-wide normal-case duration-300">Start Class</button>
                                     </td>
                                 </tr>
                             )

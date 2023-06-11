@@ -12,7 +12,7 @@ import InstructorRoute from "./InstructorRoute";
 import Dashboard from "../layout/Dashboard";
 import StudentCart from "../Pages/Dashboard/StudentDashboard/StudentCart";
 import StudentClasses from "../Pages/Dashboard/StudentDashboard/StudentClasses";
-import Checkout from "../Pages/Dashboard/Checkout/Checkout";
+import Checkout from "../Pages/Dashboard/StudentDashboard/Checkout";
 
 const router = createBrowserRouter([
     {

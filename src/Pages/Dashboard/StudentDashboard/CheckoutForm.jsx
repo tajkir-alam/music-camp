@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import useAxiosSecure from '../../../hooks/useAxiosSecure';
-import useAuth from '../../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useAuth from '../../../hooks/useAuth';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const CheckoutForm = ({ totalPrice, purchasedClass, cartId }) => {
     const { user } = useAuth();
@@ -93,7 +93,7 @@ const CheckoutForm = ({ totalPrice, purchasedClass, cartId }) => {
                             showConfirmButton: false,
                             timer: 1500
                         })
-                        navigate('/')
+                        navigate('/dashboard/student/enrolled-classes')
                     }
                 })
         }
