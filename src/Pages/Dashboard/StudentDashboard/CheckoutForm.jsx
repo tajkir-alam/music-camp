@@ -93,6 +93,11 @@ const CheckoutForm = ({ totalPrice, purchasedClass, cartId }) => {
                             showConfirmButton: false,
                             timer: 1500
                         })
+                        axiosSecure.patch(`/classes/${purchasedClass._id}`)
+                            .then(data => {
+                                // console.log("Update done.");
+                            })
+
                         navigate('/dashboard/student/enrolled-classes');
                     }
                 })
