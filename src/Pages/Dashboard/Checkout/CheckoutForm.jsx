@@ -77,7 +77,7 @@ const CheckoutForm = ({ cart, totalPrice, refetch }) => {
                 date: new Date(),
                 quantity: cart.length,
                 cartsItems: cart.map(item => item._id),
-                menuItems: cart.map(item => item.foodId),
+                courseId: cart.map(item => item.classId),
                 itemNames: cart.map(item => item.name),
                 status: 'Pending',
             }

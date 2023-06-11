@@ -109,7 +109,7 @@ const Dashboard = () => {
             <label htmlFor="my-drawer-2" className="btn btn-outline border-0 text-white text-lg drawer-button lg:hidden absolute inset-y-5 left-48 z-30"><FaAlignJustify></FaAlignJustify></label>
             <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content bg-[#F6F6F6]">
+                <div className="drawer-content">
                     {/* Page content here */}
 
 
