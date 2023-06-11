@@ -64,11 +64,11 @@ const router = createBrowserRouter([
             },
             {
                 path: 'checkout',
-                element: <Checkout></Checkout>
+                element: <StudentRoute><Checkout></Checkout></StudentRoute>
             },
             {
                 path: 'student/payment-history',
-                element: <PaymentHistory></PaymentHistory>
+                element: <StudentRoute><PaymentHistory></PaymentHistory></StudentRoute>
             }
         ]
     }

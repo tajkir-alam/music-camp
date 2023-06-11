@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FaAlignJustify, FaBook, FaBookReader, FaCalendarAlt, FaCalendarCheck, FaGrinStars, FaListUl, FaShoppingCart, FaUsers, FaUtensils, FaWallet } from 'react-icons/fa';
+import { FaAlignJustify, FaBook, FaBookReader, FaCalendarAlt, FaCalendarCheck, FaFolderPlus, FaGrinStars, FaListUl, FaShoppingCart, FaUsers, FaUtensils, FaWallet } from 'react-icons/fa';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 import useAdmin from '../hooks/useAdmin';
@@ -130,8 +130,8 @@ const Dashboard = () => {
                                 :
                                 isInstructor ?
                                     <ul className='space-y-8'>
-                                        <li className='uppercase'><NavLink className='font-semibold' to={'reservation'}><FaCalendarAlt />reservation</NavLink></li>
-                                        <li className='uppercase'><NavLink className='font-semibold' to={'payment'}><FaWallet />payment history</NavLink></li>
+                                        <li className='uppercase'><NavLink className='font-semibold' to={'reservation'}><FaFolderPlus />Add Class</NavLink></li>
+                                        <li className='uppercase'><NavLink className='font-semibold' to={'payment'}><FaBook />My Class</NavLink></li>
                                         <li className='uppercase'><NavLink className='font-semibold' to={'cart'}><FaShoppingCart />my cart</NavLink></li>
                                         <li className='uppercase'><NavLink className='font-semibold' to={'review'}><FaGrinStars />add review</NavLink></li>
                                         <li className='uppercase'><NavLink className='font-semibold' to={'booking'}><FaCalendarCheck />my booking</NavLink></li>
