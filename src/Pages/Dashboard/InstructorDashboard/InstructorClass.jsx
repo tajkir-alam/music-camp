@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
 
 const InstructorClass = () => {
+    const [feedback, setFeedback] = useState('');
     const [axiosSecure] = useAxiosSecure();
     const { data: instructorClasses = [] } = useQuery({
         queryKey: ['instructorClasses'],
@@ -46,7 +47,7 @@ const InstructorClass = () => {
                     <tbody>
                         {
                             instructorClasses.map((item, index) =>
-                                <tr key={item._id}>
+                            <tr key={item._id}>
                                     <td>
                                         {index + 1}
                                     </td>
@@ -78,7 +79,10 @@ const InstructorClass = () => {
                                         {
                                             item.status === 'Denied' ?
                                                 // <button className='btn btn-ghost px-1 normal-case'>Check Feedback</button>
-                                                <button className="btn" onClick={() => window.my_modal_5.showModal()}>Check modal</button>
+                                                <button className="btn" onClick={() => {
+                                                    window.my_modal_5.showModal()
+                                                    setFeedback(item.feedBack)
+                                                }}>Check modal</button>
                                                 :
                                                 <p className='px-2'>No Feedback</p>
                                         }
@@ -96,14 +100,15 @@ const InstructorClass = () => {
             </div>
             <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                 <form method="dialog" className="modal-box">
-                    <h3 className="font-bold text-lg">Hello!</h3>
-                    <p className="py-4">Press ESC key or click the button below to close</p>
+                    <h3 className="font-bold text-lg mb-6">Thanks for your interest! But we are sorry to say that:</h3>
+                    <p>{feedback}</p>
                     <div className="modal-action">
                         {/* if there is a button in form, it will close the modal */}
                         <button className="btn">Close</button>
                     </div>
                 </form>
             </dialog>
+            {/* {console.log(feedback)} */}
         </>
     );
 };

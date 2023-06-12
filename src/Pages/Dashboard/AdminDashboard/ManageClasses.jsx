@@ -148,7 +148,7 @@ const ManageClasses = () => {
 
                     <div className="flex justify-between items-center">
                         <input type="submit" className='btn btn-error text-white' />
-                        <p className="text-slate-400">Click outside to close the modal</p>
+                        <p className="text-slate-400">Click outside to send feedback later.</p>
                     </div>
                 </form>
 
