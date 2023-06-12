@@ -4,11 +4,13 @@ import useLoader from '../../../hooks/useLoader';
 import useAuth from '../../../hooks/useAuth';
 import { useQuery } from '@tanstack/react-query';
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 const ManageClasses = () => {
     const { loader, setLoader } = useAuth();
     const [axiosSecure] = useAxiosSecure();
-    const { data: allClasses = [] } = useQuery({
+
+    const { data: allClasses = [], refetch } = useQuery({
         queryKey: ['allClasses'],
         queryFn: async () => {
             setLoader(true)
@@ -17,6 +19,44 @@ const ManageClasses = () => {
             return res.data;
         }
     })
+
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+
+    const handleApprove = (id) => {
+        axiosSecure.patch(`/approve-class/${id}`)
+            .then(data => {
+                if (data.data.modifiedCount > 0) {
+                    refetch();
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Class Approved'
+                    })
+                }
+            })
+    }
+
+    const handleDeny = (id) => {
+        axiosSecure.patch(`/deny-class/${id}`)
+            .then(data => {
+                if (data.data.modifiedCount > 0) {
+                    refetch();
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Class Deny'
+                    })
+                }
+            })
+    }
 
     return (
         <div className="overflow-x-auto m-4">
@@ -58,10 +98,10 @@ const ManageClasses = () => {
                                 </td>
                                 <td>{item.availableSeats}</td>
                                 <td>${item.price}</td>
-                                <td><span className='shadow p-2 rounded-3xl bg-green-300'>{item.status}</span></td>
+                                <td><span className='shadow p-2 rounded-3xl bg-green-300 text-slate-600 dark:text-white font-semibold'>{item.status}</span></td>
                                 <td className='flex justify-evenly items-center gap-2'>
-                                    <button className="btn btn-ghost hover:bg-transparent p-0"><FaCheckCircle className='text-3xl duration-300 hover:text-[#f87272]'></FaCheckCircle></button>
-                                    <button className="btn btn-ghost hover:bg-transparent p-0"><FaTimesCircle className='text-3xl duration-300 hover:text-[#f87272]'></FaTimesCircle></button>
+                                    <button onClick={() => handleApprove(item._id)} className="btn btn-ghost hover:bg-transparent p-0 tooltip" data-tip="Approve"><FaCheckCircle className='text-3xl duration-300 hover:text-[#f87272]'></FaCheckCircle></button>
+                                    <button onClick={() => handleDeny(item._id)} className="btn btn-ghost hover:bg-transparent p-0 tooltip" data-tip="Deny"><FaTimesCircle className='text-3xl duration-300 hover:text-[#f87272]'></FaTimesCircle></button>
                                     <button onClick={() => window.my_modal_5.showModal()} className="btn btn-error text-white tracking-wide normal-case duration-300">Send Feedback</button>
                                 </td>
                             </tr>
