@@ -133,7 +133,7 @@ const ManageClasses = () => {
                                         setModalOpen(true);
                                         setSelectId(item._id)
                                     }}
-                                        disabled = {item.status !== 'Denied'}
+                                        disabled = {item.status === 'Pending'}
                                         className="btn btn-error text-white tracking-wide normal-case duration-300">Send Feedback</button>
                                 </td>
                             </tr>

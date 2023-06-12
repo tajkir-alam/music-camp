@@ -36,7 +36,7 @@ const Registration = () => {
         emailSignup(data.email, data.password, data.name, data.img)
             .then(result => {
                 const user = result.user;
-                const userInfo = { name: data.name, email: data.email, role: 'Student' };
+                const userInfo = { name: data.name, email: data.email, role: 'Student', userImg: data.img };
                 if (user) {
                     fetch('https://music-camp-server-data.vercel.app/users', {
                         method: "POST",
@@ -70,7 +70,7 @@ const Registration = () => {
         googleLogin()
             .then(result => {
                 const user = result.user;
-                const userInfo = { name: user.name, email: user.email, role: 'Student' };
+                const userInfo = { name: user.name, email: user.email, role: 'Student', };
                 if (user) {
                     fetch('https://music-camp-server-data.vercel.app/users', {
                         method: "POST",
@@ -86,8 +86,8 @@ const Registration = () => {
                                 title: 'Signed in successfully'
                             })
                         })
-                    setTimeout(delayNavigate, 2000);
                     logOut();
+                    setTimeout(delayNavigate, 2000);
                     reset();
                 }
             })
