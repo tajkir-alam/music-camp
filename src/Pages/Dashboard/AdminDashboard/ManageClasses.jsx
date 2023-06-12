@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
-import useLoader from '../../../hooks/useLoader';
 import useAuth from '../../../hooks/useAuth';
 import { useQuery } from '@tanstack/react-query';
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import { useForm } from 'react-hook-form';
 
 const ManageClasses = () => {
     const { loader, setLoader } = useAuth();
     const [axiosSecure] = useAxiosSecure();
+    const [selectId, setSelectId] = useState(null);
+    const [modalOpen, setModalOpen] = useState(false);
 
     const { data: allClasses = [], refetch } = useQuery({
         queryKey: ['allClasses'],
@@ -58,6 +60,30 @@ const ManageClasses = () => {
             })
     }
 
+    const closeModal = () => {
+        setModalOpen(false);
+    }
+
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const onSubmit = data => {
+        const feedBack = { feedback: data.feedback }
+        axiosSecure.post(`/feedback/${selectId}`, feedBack)
+            .then(data => {
+                if (data.data.modifiedCount > 0) {
+                    closeModal();
+                    reset();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Feedback sent to instructor',
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
+                }
+            })
+    }
+
+
     return (
         <div className="overflow-x-auto m-4">
             <table className='table'>
@@ -102,25 +128,33 @@ const ManageClasses = () => {
                                 <td className='flex justify-evenly items-center gap-2'>
                                     <button disabled={item.status !== 'Pending'} onClick={() => handleApprove(item._id)} className="btn btn-ghost hover:bg-transparent p-0 tooltip" data-tip="Approve"><FaCheckCircle className='text-3xl duration-300 hover:text-[#f87272]'></FaCheckCircle></button>
                                     <button disabled={item.status !== 'Pending'} onClick={() => handleDeny(item._id)} className="btn btn-ghost hover:bg-transparent p-0 tooltip" data-tip="Deny"><FaTimesCircle className='text-3xl duration-300 hover:text-[#f87272]'></FaTimesCircle></button>
-                                    <button onClick={() => window.my_modal_5.showModal()} className="btn btn-error text-white tracking-wide normal-case duration-300">Send Feedback</button>
+                                    <button onClick={() => {
+                                        // window.my_modal_5.showModal()
+                                        setModalOpen(true);
+                                        setSelectId(item._id)
+                                    }} className="btn btn-error text-white tracking-wide normal-case duration-300">Send Feedback</button>
                                 </td>
                             </tr>
                         )
                     }
                 </tbody>
             </table>
-            <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
-                <form method="dialog" className="modal-box">
+            <dialog id="my_modal_5" className={`modal modal-bottom sm:modal-middle ${modalOpen ? 'modal-open' : ''}`}>
+                <form onSubmit={handleSubmit(onSubmit)} className='modal-box'>
                     <h3 className="font-bold text-lg">Hello!</h3>
-                    <p className="py-4">Press ESC key or click the button below to close</p>
+                    <p className="py-4">Please let the instructor know the reason for Approve / Deny</p>
 
-                    <textarea name="" id="" rows="5" className='textarea textarea-bordered resize-none w-full'></textarea>
-                    <input type="submit" value="Send Feedback" />
+                    <textarea name="" {...register("feedback", { required: true })} id="feedback" placeholder='Enter your feedback here' rows="5" className='textarea textarea-bordered resize-none w-full'></textarea>
 
-                    <div className="modal-action">
-                        {/* if there is a button in form, it will close the modal */}
-                        <button className="btn">Close</button>
+                    <div className="flex justify-between items-center">
+                        <input type="submit" className='btn btn-error text-white' />
+                        <p className="text-slate-400">Click outside to close the modal</p>
                     </div>
+                </form>
+
+                {/* for modal close */}
+                <form method="dialog" className="modal-backdrop">
+                    <button onClick={closeModal}>close</button>
                 </form>
             </dialog>
         </div>
