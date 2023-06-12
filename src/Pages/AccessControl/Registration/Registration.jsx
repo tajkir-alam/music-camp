@@ -70,7 +70,7 @@ const Registration = () => {
         googleLogin()
             .then(result => {
                 const user = result.user;
-                const userInfo = { name: user.name, email: user.email, role: 'Student', };
+                const userInfo = { name: user.displayName, email: user.email, role: 'Student', userImg: user.photoURL};
                 if (user) {
                     fetch('https://music-camp-server-data.vercel.app/users', {
                         method: "POST",
