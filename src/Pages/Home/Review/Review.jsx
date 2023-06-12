@@ -1,20 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from 'react'
 import img2 from '../../../assets/user3.png'
 import img3 from '../../../assets/person2.png'
-import { Link } from 'react-router-dom';
 import { Rating } from '@smastrom/react-rating';
 import Aos from 'aos';
 import 'aos/dist/aos.css'
+import '@smastrom/react-rating/style.css'
 
 
 const Review = () => {
     useEffect(() => {
         Aos.init();
-    },[])
+    }, [])
 
     return (
-        <section className='custom-container my-20 lg:my-28 '>
-            <div className='mt-24'>
+        <section className='custom-container'>
+            <div>
                 <div className='text-center my-10 space-y-4'>
                     <h1 className='text-3xl font-medium'>Our Students Review</h1>
                     <p className='md:w-1/2 mx-auto'>We are happy to get the valuable thoughts from our customers. Thanks for being with us. Keep shopping action figures and play. </p>

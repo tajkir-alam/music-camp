@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useRouteError } from 'react-router-dom';
-import errorImg from '../../assets/error.png'
 import { FaArrowLeft } from 'react-icons/fa';
+
 
 const ErrorPage = () => {
     const { error, status, statusText } = useRouteError();
@@ -19,12 +19,9 @@ const ErrorPage = () => {
                 {statusText}
             </div>
             <div className="divider mt-0"></div>
-            <div className='h-[calc(100vh-300px)] grid grid-cols-3 justify-center items-center text-center'>
-                <h2 className='text-9xl text-white drop-shadow-lg flex justify-end'>4</h2>
-                <span className="animate-spin-slow">
-                    <img src={errorImg} alt="" className='h-full m-0 p-0' />
-                </span>
-                <h2 className='text-9xl text-white drop-shadow-lg flex justify-start'>4</h2>
+            <div className='stack w-full animate-pulse'>
+                <h2 className='text-[12em] text-white shadow-white shadow-md w-1/2 mx-auto rounded-xl text-center'>404</h2>
+                <h2 className='text-[12em] text-white shadow-white shadow-md w-1/2 mx-auto rounded-xl text-center'>404</h2>
             </div>
             <h4 className="text-3xl text-white text-center mt-16 space-y-8">
                 {error.message}

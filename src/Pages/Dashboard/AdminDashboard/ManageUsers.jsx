@@ -87,8 +87,6 @@ const ManageUsers = () => {
                                 </td>
                                 <td>
                                     <span className="font-medium">{user.role}</span>
-                                    {/* <br />
-                                    <span className="badge badge-ghost badge-sm p-0">{user.instructorEmail}</span> */}
                                 </td>
                                 <td className='flex gap-4'>
                                     <button onClick={() => {
