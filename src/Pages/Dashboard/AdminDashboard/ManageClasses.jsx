@@ -132,7 +132,9 @@ const ManageClasses = () => {
                                         // window.my_modal_5.showModal()
                                         setModalOpen(true);
                                         setSelectId(item._id)
-                                    }} className="btn btn-error text-white tracking-wide normal-case duration-300">Send Feedback</button>
+                                    }}
+                                        disabled = {item.status !== 'Denied'}
+                                        className="btn btn-error text-white tracking-wide normal-case duration-300">Send Feedback</button>
                                 </td>
                             </tr>
                         )
