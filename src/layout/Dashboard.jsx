@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FaAlignJustify, FaBook, FaBookReader, FaCalendarAlt, FaCalendarCheck, FaFolderPlus, FaGrinStars, FaListUl, FaShoppingCart, FaUsers, FaUtensils, FaWallet } from 'react-icons/fa';
+import { FaAlignJustify, FaBook, FaBookReader, FaCalendarAlt, FaCalendarCheck, FaFolder, FaFolderPlus, FaGrinStars, FaListUl, FaShoppingCart, FaUsers, FaUtensils, FaWallet } from 'react-icons/fa';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 import useAdmin from '../hooks/useAdmin';
@@ -122,7 +122,7 @@ const Dashboard = () => {
                         {
                             isAdmin ?
                                 <ul className='space-y-8'>
-                                    <li className='uppercase'><NavLink className='font-semibold' to={'add-items'}><FaUtensils />Add items</NavLink></li>
+                                    <li className='uppercase'><NavLink className='font-semibold' to={'admin/manage-classes'}><FaFolder />Manage Classes</NavLink></li>
                                     <li className='uppercase'><NavLink className='font-semibold' to={'manage-items'}><FaListUl />manage items</NavLink></li>
                                     <li className='uppercase'><NavLink className='font-semibold' to={'bookings'}><FaBook />manage bookings</NavLink></li>
                                     <li className='uppercase'><NavLink className='font-semibold' to={'allusers'}><FaUsers />all users</NavLink></li>

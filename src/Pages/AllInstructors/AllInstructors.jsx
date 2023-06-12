@@ -11,7 +11,7 @@ const AllInstructors = () => {
         queryKey: ['instructors'],
         queryFn: async () => {
             setLoader(true)
-            const res = await axiosSecure.get('/instructors');
+            const res = await axiosSecure.get('/all-instructor');
             setLoader(false)
             return res.data;
         }
