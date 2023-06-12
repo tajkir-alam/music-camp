@@ -100,8 +100,8 @@ const ManageClasses = () => {
                                 <td>${item.price}</td>
                                 <td><span className='shadow p-2 rounded-3xl bg-green-300 text-slate-600 dark:text-white font-semibold'>{item.status}</span></td>
                                 <td className='flex justify-evenly items-center gap-2'>
-                                    <button onClick={() => handleApprove(item._id)} className="btn btn-ghost hover:bg-transparent p-0 tooltip" data-tip="Approve"><FaCheckCircle className='text-3xl duration-300 hover:text-[#f87272]'></FaCheckCircle></button>
-                                    <button onClick={() => handleDeny(item._id)} className="btn btn-ghost hover:bg-transparent p-0 tooltip" data-tip="Deny"><FaTimesCircle className='text-3xl duration-300 hover:text-[#f87272]'></FaTimesCircle></button>
+                                    <button disabled={item.status !== 'Pending'} onClick={() => handleApprove(item._id)} className="btn btn-ghost hover:bg-transparent p-0 tooltip" data-tip="Approve"><FaCheckCircle className='text-3xl duration-300 hover:text-[#f87272]'></FaCheckCircle></button>
+                                    <button disabled={item.status !== 'Pending'} onClick={() => handleDeny(item._id)} className="btn btn-ghost hover:bg-transparent p-0 tooltip" data-tip="Deny"><FaTimesCircle className='text-3xl duration-300 hover:text-[#f87272]'></FaTimesCircle></button>
                                     <button onClick={() => window.my_modal_5.showModal()} className="btn btn-error text-white tracking-wide normal-case duration-300">Send Feedback</button>
                                 </td>
                             </tr>
