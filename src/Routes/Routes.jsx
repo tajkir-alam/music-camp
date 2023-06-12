@@ -20,11 +20,13 @@ import AdminRoute from "./AdminRoute";
 import AdminDashboard from "../Pages/Dashboard/AdminDashboard/AdminDashboard";
 import ManageClasses from "../Pages/Dashboard/AdminDashboard/ManageClasses";
 import ManageUsers from "../Pages/Dashboard/AdminDashboard/ManageUsers";
+import ErrorPage from "../Pages/ErrorPage/Errorpage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -51,6 +53,7 @@ const router = createBrowserRouter([
     {
         path: 'dashboard',
         element: <Dashboard></Dashboard>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: 'admin',
