@@ -87,7 +87,7 @@ const AddClass = () => {
                         </div>
                     </div>
 
-                    <input type="submit" value="Add Product" className='btn btn-error w-full text-white font-semibold tracking-widest mt-8 drop-shadow-xl' />
+                    <input type="submit" value="Add Class" className='btn btn-error w-full text-white font-semibold tracking-widest mt-8 drop-shadow-xl' />
                 </form>
             </div>
         </div>

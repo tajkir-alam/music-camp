@@ -131,7 +131,7 @@ const Dashboard = () => {
                                 isInstructor ?
                                     <ul className='space-y-8'>
                                         <li className='uppercase'><NavLink className='font-semibold' to={'instructor/add-class'}><FaFolderPlus />Add Class</NavLink></li>
-                                        <li className='uppercase'><NavLink className='font-semibold' to={'payment'}><FaBook />My Class</NavLink></li>
+                                        <li className='uppercase'><NavLink className='font-semibold' to={'instructor/my-class'}><FaBook />My Class</NavLink></li>
                                     </ul>
                                     :
                                     isStudent ?
