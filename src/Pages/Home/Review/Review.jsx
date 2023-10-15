@@ -16,10 +16,6 @@ const Review = () => {
     return (
         <section className='custom-container'>
             <div>
-                {/* <div className='text-center my-10 space-y-4'>
-                    <h1 className='text-3xl font-medium'></h1>
-                    <p className='md:w-1/2 mx-auto'> </p>
-                </div> */}
                 <SectionTitle
                     heading={'Our Students Review'}
                     subHeading={'We are happy to get the valuable thoughts from our customers. Thanks for being with us. Keep shopping action figures and play.'}
