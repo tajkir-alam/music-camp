@@ -5,6 +5,7 @@ import PopularInstructors from '../PopularInstructors/PopularInstructors';
 import Review from '../Review/Review';
 import JoinUs from '../JoinUs/JoinUs';
 import ClassSchedule from '../ClassSchedule/ClassSchedule';
+import ContactUs from '../ContactUs/ContactUs';
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
             <ClassSchedule></ClassSchedule>
             <Review></Review>
             <JoinUs></JoinUs>
+            <ContactUs></ContactUs>
         </>
     );
 };
