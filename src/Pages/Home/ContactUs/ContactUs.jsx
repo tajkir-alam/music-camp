@@ -22,7 +22,7 @@ const ContactUs = () => {
     const onSubmit = data => {
         Toast.fire({
             icon: 'success',
-            title: 'Signed in successfully'
+            title: 'Message sent successfully'
         });
         reset();
     };
