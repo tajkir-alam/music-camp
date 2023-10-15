@@ -29,7 +29,7 @@ const ClassSchedule = () => {
                     <div className='space-y-1'>
                         <h2 className='text-center text-lg md:text-xl text-slate-700 dark:text-white font-semibold'>Afternoon</h2>
                         <p className='text-center text-sm text-slate-500 dark:text-slate-300 font-semibold'>
-                        Time: 12PM ~ 2Pm
+                            Time: 12PM ~ 2Pm
                         </p>
                     </div>
                 </div>
@@ -40,7 +40,7 @@ const ClassSchedule = () => {
                     <div className='space-y-1'>
                         <h2 className='text-center text-lg md:text-xl text-slate-700 dark:text-white font-semibold'>Evening</h2>
                         <p className='text-center text-sm text-slate-500 dark:text-slate-300 font-semibold'>
-                        Time: 2PM ~ 4PM
+                            Time: 2PM ~ 4PM
                         </p>
                     </div>
                 </div>
