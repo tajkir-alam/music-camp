@@ -5,6 +5,7 @@ import { Rating } from '@smastrom/react-rating';
 import Aos from 'aos';
 import 'aos/dist/aos.css'
 import '@smastrom/react-rating/style.css'
+import SectionTitle from '../../../Components/SectionTitle';
 
 
 const Review = () => {
@@ -15,10 +16,14 @@ const Review = () => {
     return (
         <section className='custom-container'>
             <div>
-                <div className='text-center my-10 space-y-4'>
-                    <h1 className='text-3xl font-medium'>Our Students Review</h1>
-                    <p className='md:w-1/2 mx-auto'>We are happy to get the valuable thoughts from our customers. Thanks for being with us. Keep shopping action figures and play. </p>
-                </div>
+                {/* <div className='text-center my-10 space-y-4'>
+                    <h1 className='text-3xl font-medium'></h1>
+                    <p className='md:w-1/2 mx-auto'> </p>
+                </div> */}
+                <SectionTitle
+                    heading={'Our Students Review'}
+                    subHeading={'We are happy to get the valuable thoughts from our customers. Thanks for being with us. Keep shopping action figures and play.'}
+                />
                 <div className='grid lg:grid-cols-2 justify-center items-center gap-8'>
                     <div data-aos="fade-down-right" data-aos-delay="10" data-aos-duration="2500" className='bg-[#f1eaea8f] rounded-tl-3xl rounded-tr-lg rounded-br-3xl rounded-bl-lg px-4 py-8 h-64 grid grid-cols-3 items-center gap-4'>
                         <div>

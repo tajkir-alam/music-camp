@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'bg-footer': "url('./src/assets/class/guiar.jpg')"
+        'bg-footer': "url('./guiar.jpg')"
       },
     },
     fontFamily: {
