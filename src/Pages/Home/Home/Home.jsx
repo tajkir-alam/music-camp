@@ -6,6 +6,7 @@ import Review from '../Review/Review';
 import JoinUs from '../JoinUs/JoinUs';
 import ClassSchedule from '../ClassSchedule/ClassSchedule';
 import ContactUs from '../ContactUs/ContactUs';
+import WhyUs from '../WhyUs/WhyUs';
 
 const Home = () => {
     return (
@@ -14,6 +15,7 @@ const Home = () => {
             <PopularClasses></PopularClasses>
             <PopularInstructors></PopularInstructors>
             <ClassSchedule></ClassSchedule>
+            <WhyUs></WhyUs>
             <Review></Review>
             <JoinUs></JoinUs>
             <ContactUs></ContactUs>
