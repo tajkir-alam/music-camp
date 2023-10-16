@@ -8,6 +8,7 @@ import ClassSchedule from '../ClassSchedule/ClassSchedule';
 import ContactUs from '../ContactUs/ContactUs';
 import WhyUs from '../WhyUs/WhyUs';
 import OurImpact from '../OurImpact/OurImpact';
+import OurStory from '../OurStory/OurStory';
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
             <Banner></Banner>
             <PopularClasses></PopularClasses>
             <PopularInstructors></PopularInstructors>
+            <OurStory></OurStory>
             <ClassSchedule></ClassSchedule>
             <WhyUs></WhyUs>
             <OurImpact></OurImpact>
