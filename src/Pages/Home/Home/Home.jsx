@@ -9,6 +9,7 @@ import ContactUs from '../ContactUs/ContactUs';
 import WhyUs from '../WhyUs/WhyUs';
 import OurImpact from '../OurImpact/OurImpact';
 import OurStory from '../OurStory/OurStory';
+import FAQ from '../FAQ/FAQ';
 
 const Home = () => {
     return (
@@ -23,6 +24,7 @@ const Home = () => {
             <Review></Review>
             <JoinUs></JoinUs>
             <ContactUs></ContactUs>
+            <FAQ></FAQ>
         </>
     );
 };

@@ -28,7 +28,7 @@ const ContactUs = () => {
     };
 
     return (
-        <section className='custom-container mb-12'>
+        <section className='custom-container'>
             <SectionTitle
                 heading={'Contact Us'}
                 subHeading={'Do not hesitate to contact us if you have any queries.'}
